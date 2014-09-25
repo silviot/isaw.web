@@ -99,7 +99,7 @@ virtualenv command, then create your virtualenv:
 
 If your Python 2.6 is not the default python in your path, then:
 
-    PATH_TO_PTYHON_26
+    export PATH_TO_PTYHON_26=`which python2.6`
     virtualenv --python $PATH_TO_PTYHON_26 py26-venv
 
 
