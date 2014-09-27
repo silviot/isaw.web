@@ -138,7 +138,7 @@ To run the local instance in development mode, simply run:
 
 At this point you should be able to connect to the instance on:
 
-    http://127.0.0.1:8081/
+    http://127.0.0.1:8086/
 
 Which should show you a button for creating a new Plone site.  You'll want to
 create a new site and apply the isaw.policy default profile by checking the
