@@ -58,3 +58,10 @@ target/
 
 # sublime text 
 *.sublime-*
+
+# ssl keys for saml2 work
+keys
+
+# omit file and blob storage
+var/filestorage
+var/blobstorage
