@@ -44,7 +44,11 @@ On OS X
 
 Unfortunately, Homebrew no longer supports installing Python 2.6, so the
 instructions below are for MacPorts.  (Pyenv)[https://github.com/yyuu/pyenv]
-may be a good alternative.
+may be a good alternative. Note 
+(Hong Xu's workaround)[http://www.topbug.net/blog/2013/10/23/use-both-homebrew-and-macports-on-your-os-x/] 
+for selectively using
+MacPorts on an otherwise Homebrew'd Mac. It worked at least once on a 
+Mavericks OSX for the following steps (mutatis mutandis).
 
 On Mac OS X, assuming you have a XCode and MacPorts (a 3rd party package
 manager ) and are not currently in an active Virtualenv (otherwise
