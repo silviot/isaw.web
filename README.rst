@@ -67,11 +67,11 @@ On Ubuntu
 ---------
 
 You will need to install the deadsnakes PPA to get the older Python 2.6
-version in Ubuntu 12.04 or later:
+version in Ubuntu 12.04 or later::
 
-|    sudo add-apt-repository ppa:fkrull/deadsnakes
-|    sudo apt-get update
-|    sudo apt-get install python2.6 python2.6-dev python-setuptools-deadsnakes python-virtualenv
+    sudo add-apt-repository ppa:fkrull/deadsnakes
+    sudo apt-get update
+    sudo apt-get install python2.6 python2.6-dev python-setuptools-deadsnakes python-virtualenv
 
 
 Library Dependencies
@@ -79,10 +79,10 @@ Library Dependencies
 
 To ensure all of Plone's functionality works out of the box, you'll want to install a couple support libraries:
 
-With Homebrew:
+With Homebrew::
 
-|    brew install libxml2 libxslt libjpeg
-|    brew link libxml2 libxslt libjpeg
+    brew install libxml2 libxslt libjpeg
+    brew link libxml2 libxslt libjpeg
 
 or MacPorts:
 
@@ -101,34 +101,34 @@ virtualenv command, then create your virtualenv:
 
     virtualenv[-2.6] py26-venv
 
-If your Python 2.6 is not the default python in your path, then:
+If your Python 2.6 is not the default python in your path, then::
 
-|    export PATH_TO_PTYHON_26=`which python2.6`
-|    virtualenv --python $PATH_TO_PTYHON_26 py26-venv
+    export PATH_TO_PTYHON_26=`which python2.6`
+    virtualenv --python $PATH_TO_PTYHON_26 py26-venv
 
 
 Buildout
 --------
 
-Activate your new environment and clone the buildout:
+Activate your new environment and clone the buildout::
 
-|    cd py26-venv
-|    source bin/activate
-|    git clone git@github.com:isawnyu/isaw.web.git
+    cd py26-venv
+    source bin/activate
+    git clone git@github.com:isawnyu/isaw.web.git
 
-Then bootstrap and run your buildout:
+Then bootstrap and run your buildout::
 
-|    cd isaw.web
-|    python ./bootstrap.py
-|    bin/buildout -c development.cfg
+    cd isaw.web
+    python ./bootstrap.py
+    bin/buildout -c development.cfg
 
 If this build fails due to a C compiler "unknown arguments" error, you may
 have a buggy XCode install.  Specifically there is a know issue with XCode
 5.1+ running on OS X Mountain Lion (10.8.x).  The workaround is to set the
-following shell environment variables before running `buildout`:
+following shell environment variables before running `buildout`::
 
-|    export CFLAGS=-Qunused-arguments
-|    export CPPFLAGS=-Qunused-arguments
+    export CFLAGS=-Qunused-arguments
+    export CPPFLAGS=-Qunused-arguments
 
 This should pull down additional repositories, install python dependencies,
 and in the end create the scripts to run a local development version of the
@@ -159,7 +159,7 @@ You can update project sources by running:
 Each in-development add-on package lives in a directory inside of `src/` and
 is its own git repository.
 
-And you can update the buildout itself with:
+And you can update the buildout itself with::
 
-|    git pull origin master
-|    bin/buildout -c development.cfg
+    git pull origin master
+    bin/buildout -c development.cfg
