@@ -20,19 +20,19 @@ Getting Started
 This buildout runs Plone 4.2.5, and expects Python 2.6 (2.6.9).  In order to
 get started you must first install Python version 2.6 on your OS.  You can
 first check your python version to see if it is already installed before
-proceeding:
+proceeding::
 
     python --version
 
-Or you might have Python 2.6 installed under its own name:
+Or you might have Python 2.6 installed under its own name::
 
     python2.6 --version
 
-And then check if you've got virtualenv installed:
+And then check if you've got virtualenv installed::
 
     virtualenv --version
 
-Or
+Or::
 
     virtualenv-2.6 --version
 
@@ -52,11 +52,11 @@ Mavericks OSX for the following steps (mutatis mutandis).
 
 On Mac OS X, assuming you have a XCode and MacPorts (a 3rd party package
 manager ) and are not currently in an active Virtualenv (otherwise
-`deactivate`):
+`deactivate`)::
 
     sudo port install python26
 
-Install virtualenv:
+Install virtualenv::
 
     sudo port install py26-setuptools py26-virtualenv
 
@@ -84,11 +84,11 @@ With Homebrew::
     brew install libxml2 libxslt libjpeg
     brew link libxml2 libxslt libjpeg
 
-or MacPorts:
+or MacPorts::
 
     sudo port install libxml2 libxslt libjpeg
 
-or Apt:
+or Apt::
 
     sudo apt-get install libxml2-dev libxslt-dev libjpeg-dev
 
@@ -97,7 +97,7 @@ Python Virtualenv Setup
 -----------------------
 
 If Python 2.6 is your default python or you have a Python 2.6 specific
-virtualenv command, then create your virtualenv:
+virtualenv command, then create your virtualenv::
 
     virtualenv[-2.6] py26-venv
 
@@ -132,15 +132,15 @@ following shell environment variables before running `buildout`::
 
 This should pull down additional repositories, install python dependencies,
 and in the end create the scripts to run a local development version of the
-ISAW site.  First you can create and/or set an Admin user password:
+ISAW site.  First you can create and/or set an Admin user password::
 
     bin/instance adduser <name> <password>
 
-To run the local instance in development mode, simply run:
+To run the local instance in development mode, simply run::
 
     bin/instance fg
 
-At this point you should be able to connect to the instance on:
+At this point you should be able to connect to the instance on::
 
     http://127.0.0.1:8086/
 
@@ -152,7 +152,7 @@ corresponding checkbox.
 Development
 -----------
 
-You can update project sources by running:
+You can update project sources by running::
 
     bin/develop up
 
