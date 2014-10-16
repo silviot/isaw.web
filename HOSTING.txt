@@ -1,7 +1,7 @@
 The following commands are required to install required software packages and configure the server:
 
-    apt-get install git apache2 varnish haproxy bibutils wv poppler-utils libjpeg-dev libxml2-dev libxslt-dev libtiff5-dev libfreetype6-dev
-    a2enmod rewrite ssl headers proxy proxy_http deflate
+    apt-get install git apache2 apache2-utils varnish haproxy bibutils wv poppler-utils libjpeg-dev libxml2-dev libxslt-dev libtiff5-dev libfreetype6-dev
+    a2enmod rewrite ssl headers proxy proxy_http deflate munin munin-node
 
     # For Python 2.6 (Plone < 4.3)
     apt-get install software-properties-common
@@ -32,6 +32,13 @@ The following commands are required to install required software packages and co
     cp conf/varnish.vcl /etc/varnish
     service varnish restart
 
+    # Munin (http://site/munin)
+    # the following command will ask for a password to use for protecting munin
+    htpasswd -c /etc/munin/munin-htpasswd Munin
+    cp conf/munin-apache.conf /etc/munin/apache.conf
+    cp conf/munin.conf /etc/munin
+    service munin-node restart
+    
     # Apache config
     # Copy certs to /etc/ssl/private
     cp conf/isaw-apache.conf conf/isaw-apache-ssl.conf /etc/apache2/sites-available
