@@ -1,4 +1,5 @@
-The following commands are required to install required software packages and configure the server:
+The following commands are required to install required software packages and
+configure the server::
 
     apt-get install git apache2 apache2-utils varnish haproxy bibutils wv poppler-utils libjpeg-dev libxml2-dev libxslt-dev libtiff5-dev libfreetype6-dev
     a2enmod rewrite ssl headers proxy proxy_http deflate munin munin-node
@@ -50,10 +51,24 @@ The following commands are required to install required software packages and co
     service apache2 restart
 
 
-To deploy new software:
+To deploy new software::
 
     cd /srv/isaw.web
     git pull
     bin/buildout -c production.cfg
     chown -R plone:plone .
     service supervisorctl restart client1 client2 client3
+
+
+Syncing Data from ISAW production (currently 66.35.39.43, you will need to
+ensure that your user can read all blobstorage files on the production
+server)::
+
+    sudo rsync -avz -e "ssh -p 6195" *user*@66.35.39.43:/opt/isaw.nyu.edu/Plone/zeocluster/var/filestorage/ var/filestorage/
+    sudo rsync -avz --delete -e "ssh -p 6195" *user*@66.35.39.43:/opt/isaw.nyu.edu/Plone/zeocluster/var/blobstorage/ var/blobstorage/
+
+
+Syncing other sites from ISAW production:
+
+    cd /srv/
+    sudo rsync -avz -e "ssh -p 6195" *user*@66.35.39.43:/opt/isaw.nyu.edu/www-data/ www-data/
