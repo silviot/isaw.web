@@ -25,18 +25,18 @@ configure the server::
     # The buildout should be owned by the plone user, so either run it as "su
     # plone" or
 
-    chown -R plone:plone .
+    chown -R plone:jazkarta .
 
     cp conf/supervisor.conf /etc/init
-    service supervisor restart
+    service supervisor start
 
-    # Enable haproxy
+    # Enable haproxy by changing 0 to 1 in this file:
     vim /etc/default/hapxroxy
     cp conf/haproxy.cfg /etc/haproxy
     service haproxy restart
 
     # Enable varnish
-    cp conf/varnish.vcl /etc/varnish
+    cp conf/default.vcl /etc/varnish
     service varnish restart
 
     # Munin (http://site/munin) the following command will ask for a password
