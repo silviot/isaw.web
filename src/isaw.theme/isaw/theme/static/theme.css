@@ -756,6 +756,31 @@ h2.CVSectionTitle:before {
 .fc-event, .fc-agenda .fc-event-time, .fc-event a {background:#66232b !important; border:1px solid #66232b !important; padding:4%; }
 .fc-grid .fc-event-time {display:block; margin:0 0 4px; }
 
+
+/* collective.cover */
+.portaltype-collective-cover-content #portal-columns.one #portal-column-content #content .row > .column {
+	padding: 0px;
+	margin: 10px 10px;
+	float: left;
+}
+.portaltype-collective-cover-content #portal-columns.one #portal-column-content #content .row > .column.col-md-4 {
+	max-width: 362px;
+}
+.portaltype-collective-cover-content #portal-columns.one #portal-column-content #content .row > .column .tile {
+	margin: 0px auto 0px auto;
+}
+.portaltype-collective-cover-content #portal-columns.one #portal-column-content #content .row > .column .tile h2 {
+	text-align: center;
+	padding: 0px;
+	margin: 0px;
+}
+.portaltype-collective-cover-content #portal-columns.one #portal-column-content #content .row > .column .tile img {
+	padding: 0px !important;
+	margin: 0px !important;
+	float: none !important;
+}
+
+/* emergency message */
 #emergency-message {
     margin: 0;
     padding: 25px;
@@ -970,3 +995,4 @@ h2.CVSectionTitle:before {
 	#portal-column-content {
 	margin-left: 0 !important;
 }
+
