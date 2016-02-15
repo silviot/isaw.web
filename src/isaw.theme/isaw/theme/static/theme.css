@@ -775,6 +775,11 @@ h2.CVSectionTitle:before {
     cursor: pointer;
 }
 
+.radioscrolllist > .list.item {
+	line-height: 1em;
+	margin-top: 10px;
+}
+
 @media screen and (max-width:1330px){
 
 	#portal-top #main-navigation ul#primary li {width:auto; }
