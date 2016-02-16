@@ -780,6 +780,10 @@ h2.CVSectionTitle:before {
 	margin-top: 10px;
 }
 
+.template-atct_edit #portal-column-first {
+	display: none;
+}
+
 @media screen and (max-width:1330px){
 
 	#portal-top #main-navigation ul#primary li {width:auto; }
