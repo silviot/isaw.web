@@ -27,6 +27,7 @@ var/*
 src/plone.app.users
 src/isaw.bibitems
 src/plone.app.imagecropping
+src/collective.saml2
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
