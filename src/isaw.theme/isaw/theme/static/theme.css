@@ -287,7 +287,7 @@ fieldset#search-field {text-align:left !important; }
 #portal-columns table tbody tr, #content table tbody  { }
 #portal-columns table tbody tr.even, #content table tbody tr.even {background:#f8f0e6; }
 #portal-columns table tbody tr th, #content table tbody tr th {background:#d4b982; border:1px solid #e2ddd7; color:#fff; font-family:'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; font-weight:800; letter-spacing:1px; line-height:100%; padding:20px 56px 20px 24px; text-align:left; text-transform:uppercase; }
-#portal-columns table tbody tr td, #content table tbody tr td {border:1px solid #e2ddd7; font-family:'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; font-weight:700; letter-spacing:.4px; line-height:100%; padding:20px 24px; text-transform:uppercase; }
+#portal-columns table tbody tr td, #content table tbody tr td {border:1px solid #e2ddd7; font-family:'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; font-weight:700; letter-spacing:.4px; line-height:100%; padding:20px 24px; }
 .template-usergroup-userprefs #portal-columns table tbody tr th,
 .template-usergroup-groupprefs #portal-columns table tbody tr th {background:#d4b982; border:1px solid #e2ddd7; color:#fff; font-family:'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; font-weight:800; letter-spacing:1px; line-height:100%; padding:5px; text-align:left; text-transform:none; }
 .template-usergroup-userprefs #portal-columns table tbody tr td,
@@ -514,13 +514,14 @@ fieldset#search-field {text-align:left !important; }
 #viewlet-above-content .post.featured .post-content .post-meta img {background:#fff; border:1px solid #bbb2aa; border-radius:50%; display:inline-block; height:29px; margin:0 15px 0 0; vertical-align:middle; width:29px; }
 #viewlet-above-content .post.featured .post-content a.button.more {display:block; float:right; margin:30px 0; }
 
-#portal-columns ul.news, #content ul.news {margin:0; padding:0; }
+#portal-columns ul.news, #content ul.news {margin:0; padding:0; overflow: visible;}
 #portal-columns ul.news:after, #content ul.news:after {content: ""; display:table; clear:both;}
 #portal-columns ul.news li, #content ul.news li {display:block; float:left; margin:0 3% 3% 0; width:31.33%; }
 #portal-columns ul.news li:nth-child(3n), #content ul.news li:nth-child(3n) {margin-right:0; }
 #portal-columns ul.news li:nth-child(3n+1), #content ul.news li:nth-child(3n+1) {clear:left; }
 #portal-columns ul.news li a, #content ul.news li a {text-decoration:none; }
-#portal-columns ul.news li a img, #content ul.news li a img {display:block; max-width:100%; max-height: 170px; overflow: hidden; border:1px solid #ddd;}
+#portal-columns ul.news li a.ImageLink, #content ul.news li a.ImageLink {width: 100%; display: block; overflow: hidden; max-height: 170px; }
+#portal-columns ul.news li a img, #content ul.news li a img {display:block; max-width:100%; height: auto; overflow: hidden; border:1px solid #ddd;}
 #portal-columns ul.news li a h3, #content ul.news li a h3 {color:#000; font-size:25px; font-weight:400; letter-spacing:.5px; line-height:30px; margin: 8px 0 0; text-align:left; text-decoration:none; text-transform:uppercase; }
 #portal-columns ul.news li .post-meta, #content ul.news li .post-meta {color:#6a6a6a; display:block; font-size:14px; font-weight:400; letter-spacing:.8px; line-height:120%; margin:10px 0; text-transform:uppercase; }
 #portal-columns ul.news li .post-meta img, #content ul.news li .post-meta img {background:#fff; border:1px solid #bbb2aa; border-radius:50%; display:inline-block; height:29px; margin:0 15px 0 0; vertical-align:middle; width:29px; }
@@ -712,6 +713,30 @@ td.event a, td.todayevent a {
 	overflow: hidden;
 }
 
+#content ul.ProfileLinks {
+    padding: 0;
+    margin: 10px 0;
+}
+#content ul.ProfileLinks li {
+    list-style: none;
+    display: inline;
+}
+i.fa, a i.fa, a:visited i.fa, a:hover i.fa, .ProfileLinks a i.fa {
+    text-align: left;
+    margin-right: 0.33em;
+    text-decoration: none;
+    border: none;
+}
+
+.ProfileLinks a:hover {
+    text-decoration: none;
+    border: none;
+}
+
+.ProfileLinks i.fa.fa-wikipedia-w {
+    width: 1.25em;
+}
+
 #content .ProfileInfo h1 {
 	margin-top: 0.75em;
 	color:#000;
@@ -725,7 +750,6 @@ td.event a, td.todayevent a {
 .ProfileTitles {
 	font-family:'Open Sans', Arial, Helvetica, sans-serif;
 	line-height:100%;
-	text-transform:uppercase;
 	margin-top:7px;
 }
 
@@ -849,6 +873,26 @@ h2.CVSectionTitle:before {
     height: 30px;
     width: 30px;
     cursor: pointer;
+}
+
+.PublicationImage {
+    width: 450px;
+    max-width:50%;
+}
+
+.PublicationImage img {
+    max-width:100%;
+    height: auto;
+}
+
+.PublicationInfo ul {
+    list-style: none inside !important;
+    padding-left: 2em !important;
+    text-indent: -2em !important;
+}
+
+.PublicationLinks {
+    margin-bottom: 0.25em;
 }
 
 @media screen and (max-width:1330px){
@@ -1179,6 +1223,8 @@ div.leaflet-control-geosearch.leaflet-control {
 	#content #slider .slide .slideroverlay p {font-size:16px; }
 
 	#portal-columns ul.news li, #content ul.news li {float:none; margin-right:0 !important; width:100% !important; }
+    .PublicationImage { max-width: 100%; }
+    .AccessButton { font-size: 10px; padding: 6px; }
 }
 
 @media screen and (max-width:319px){
