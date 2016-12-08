@@ -20,19 +20,19 @@ if (typeof DEBUG === 'undefined') {
 
 (function(window) {
     if (DEBUG) console.log('AWLD.js loaded');
-        
+
     // utility: simple object extend
     function extend(obj, settings) {
         for (var prop in settings) {
             obj[prop] = settings[prop];
         }
     }
-    
+
     // utility: is this a string?
     function isString(obj) {
         return typeof obj == 'string';
     }
-    
+
     var additionalModules = {},
         // check for baseUrl, autoinit
         docScripts = document.getElementsByTagName('script'),
@@ -40,7 +40,7 @@ if (typeof DEBUG === 'undefined') {
         scriptSrc = scriptEl.src,
         defaultBaseUrl = scriptSrc.replace(/awld\.js.*/, ''),
         autoInit = !!scriptSrc.match(/autoinit/),
-    
+
     /**
      * @name awld
      * @namespace
@@ -56,25 +56,25 @@ if (typeof DEBUG === 'undefined') {
 
         /**
          * @type String
-         * Base URL for dependencies; library and module 
-         * dependencies will be loaded relative to this URL. 
+         * Base URL for dependencies; library and module
+         * dependencies will be loaded relative to this URL.
          * See http://requirejs.org/docs/api.html#config for
          * more information.
          */
         baseUrl: defaultBaseUrl,
-        
+
         /**
          * @type String
          * Path for modules, relative to baseUrl
          */
         modulePath: 'modules/',
-        
+
         /**
          * @type String
          * Path for libraries, relative to baseUrl
          */
         libPath: 'lib/',
-        
+
         /**
          * @type Object
          * Special path definitions for various dependencies.
@@ -82,45 +82,45 @@ if (typeof DEBUG === 'undefined') {
          * more information.
          */
         paths: {},
-        
+
         /**
          * @type String
          * Version number
          */
         version: AWLD_VERSION,
-        
+
         /**
          * @type Object[]
          * Array of loaded modules
          */
         modules: [],
-        
+
         /**
          * @type Object
          * Map of loaded modules, keyed by module path
          */
         moduleMap: {},
-        
+
         /**
          * @type Boolean
          * Whether to auto-load data for all identified URIs
          */
         autoLoad: true,
-         
+
         /**
          * @name alwd.popupClose
          * @type String|Number
-         * How the popup window should be closed. Options are either a number 
+         * How the popup window should be closed. Options are either a number
          * (milliseconds to wait before closing) or the string 'manual'.
          */
         popupClose: POPUP_CLOSE,
-        
+
         /**
          * @name alwd.scope
          * @type String|DOM Element
          * Selector or element to limit the scope of automatic resource identification.
          */
-        
+
         /**
          * Register an additional module for awld.js to load (if its URIs are found)
          * @function
@@ -131,7 +131,7 @@ if (typeof DEBUG === 'undefined') {
         registerModule: function(uriRoot, path) {
             additionalModules[uriRoot] = path;
         },
-        
+
         /**
          * Extend the awld object with custom settings.
          * @function
@@ -140,23 +140,23 @@ if (typeof DEBUG === 'undefined') {
         extend: function(settings) {
             extend(awld, settings);
         }
-        
+
     },
-    
+
     /**
      * @function
      * Initialize the library, loading and running modules based on page content
      */
     init = awld.init = function(opts) {
         if (DEBUG) console.log('Initializing library');
-        
+
         // process arguments
         var isScope = isString(opts) || (opts && (opts.nodeType || opts.jquery)),
             isPlainObject = opts === Object(opts) && !isScope;
-            
+
         // an object argument is configuration
         if (isPlainObject) awld.extend(opts);
-        
+
         var scope = isScope ? opts : awld.scope,
             // check for existing jQuery
             jQuery = window.jQuery,
@@ -168,8 +168,8 @@ if (typeof DEBUG === 'undefined') {
             onload = awld.onLoad,
             localJqueryPath = libPath + 'jquery/jquery-1.7.2.min',
             noConflict;
-        
-        // check for jQuery 
+
+        // check for jQuery
         if (!jQuery || oldjQuery) {
             // load if it's not available or doesn't meet min standards
             paths.jquery = localJqueryPath;
@@ -178,26 +178,26 @@ if (typeof DEBUG === 'undefined') {
             // register the current jQuery
             define('jquery', [], function() { return jQuery; });
         }
-        
+
         // add libraries - XXX: better way?
         paths.handlebars = libPath + 'handlebars.runtime';
         paths.mustache = libPath + 'mustache.0.5.0-dev';
-        
+
         // set up require
         require.config({
             baseUrl: awld.baseUrl,
-            paths: paths 
+            paths: paths
         });
-        
+
         // load registry and initialize modules
         require(['jquery', 'registry', 'ui', 'types'], function($, registry, ui, types) {
-        
+
             // add any additional modules
             $.extend(registry, additionalModules);
-        
+
             // deal with jQuery versions if necessary
             if (noConflict) $.noConflict(true);
-            
+
             // add a jquery-dependent utility
             awld.accessor = function(xml) {
                 $xml = $(xml);
@@ -208,7 +208,7 @@ if (typeof DEBUG === 'undefined') {
                     return text.length > 1 ? text : text[0];
                 };
             };
-            
+
             /**
              * @name awld.Resource
              * @class
@@ -259,7 +259,7 @@ if (typeof DEBUG === 'undefined') {
                                             if (DEBUG) console.error('Error loading data for ' + res.uri,  data, e);
                                         }
                                         // invoke any handlers
-                                        readyHandlers.forEach(function(f) { 
+                                        readyHandlers.forEach(function(f) {
                                             f(res);
                                         });
                                         loaded = res.loaded = true;
@@ -298,7 +298,7 @@ if (typeof DEBUG === 'undefined') {
                     }
                 }, opts);
             };
-            
+
             /**
              * @name awld.Modules
              * @class
@@ -366,7 +366,7 @@ if (typeof DEBUG === 'undefined') {
                     initialize: noop
                 }, opts);
             };
-            
+
             // load machinery
             var target = 0,
                 loaded = 0,
@@ -384,15 +384,15 @@ if (typeof DEBUG === 'undefined') {
                         ui.init(modules);
                     }
                 };
-            
+
             // wrap in ready, as this looks through the DOM
             $(function() {
-            
+
                 // constrain scope based on markup
                 var scopeSelector = '.awld-scope';
                 if (!scope && $(scopeSelector).length)
                     scope = scopeSelector;
-            
+
                 // look for modules to initialize
                 $.each(registry, function(uriBase, moduleName) {
                     // look for links with this URI base
@@ -411,16 +411,16 @@ if (typeof DEBUG === 'undefined') {
                             // update manager
                             loadMgr(moduleName, module);
                         });
-                    }   
+                    }
                 });
             });
-            
+
         });
     };
-    
+
     // add to global namespace
     window.awld = awld;
-    
+
     if (autoInit) init();
-    
+
 })(window);

@@ -6,7 +6,7 @@ define(['jquery'], function($) {
     return {
         name: 'GeoNames Features',
         type: 'place',
-        dataType: 'xml',        
+        dataType: 'xml',
         toDataUri: function(uri) {
             var levels = uri.split('/');
             // Site does not have valid SSL cert, content cannot be loaded into secure pages
