@@ -9,8 +9,8 @@
       type="zope.publisher.interfaces.browser.IBrowserSkinType"
       name="NYU ISAW Theme"
       />
-  
-  <!-- For overriding templates, add z3c.jbot to the base.cfg to use -->    
+
+  <!-- For overriding templates, add z3c.jbot to the base.cfg to use -->
   <include package="z3c.jbot" file="meta.zcml" />
 
   <!-- Forms package for events request etc -->
@@ -19,7 +19,7 @@
   <browser:templateOverrides
       directory="template-overrides"
       layer=".interfaces.IThemeSpecific" />
-  
+
   <!-- Utils View -->
   <browser:page
      name="utils_view"
@@ -27,7 +27,7 @@
      class=".utilsview.UtilsView"
      permission="zope.Public"
      allowed_interface=".interfaces.IUtilsView"
-     /> 
+     />
 
   <!-- Tiled listing view -->
   <browser:page
@@ -310,6 +310,14 @@
     class=".publication.PublicationImagesView"
     layer=".interfaces.IThemeSpecific"
     template="templates/publication_images.pt"
+    />
+
+  <browser:page
+    name="libcollection-view"
+    for="isaw.policy.interfaces.IISAWLibCollection"
+    permission="zope2.View"
+    layer=".interfaces.IThemeSpecific"
+    template="templates/libcollection.pt"
     />
 
 </configure>
