@@ -303,4 +303,12 @@
     template="templates/publication_view.pt"
     />
 
+  <browser:page
+    name="isaw-users.json"
+    for="*"
+    permission="cmf.ModifyPortalContent"
+    layer=".interfaces.IThemeSpecific"
+    class=".json_api.UsersVocabularyView"
+    />
+
 </configure>

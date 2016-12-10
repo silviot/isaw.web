@@ -262,5 +262,32 @@ jQuery(function($) {
             text = text.substr(0,50).split(" ").slice(0, -1).join(" ") + '\u2026'
         }
         $breadcrumb.text(text);
-    })
+    });
+
+    // Publication edit form bling
+    var $pub_edit_form = $('body.template-edit.portaltype-isaw-policy-publication #content-core form, body.template-isaw-policy-publication #content-core form');
+    var $people_widgets = $pub_edit_form.find('#formfield-form-widgets-authors, #formfield-form-widgets-editors, #formfield-form-widgets-contributors');
+    if ($people_widgets.length) {
+        $.getJSON('isaw-users.json').done(function (data) {
+            var $select = $('<select><option value=""></option></select>');
+            for (var val in data) {
+                val = data[val];
+                $("<option />", {value: val.id, text: val.name + ' (' + val.id +')'}).appendTo($select);
+            }
+            $people_widgets.each(function () {
+                var $this = $(this);
+                var $field = $this.find('textarea');
+                var $widget = $select.clone();
+                $this.append($widget);
+                $widget.change(function () {
+                    var id = $widget.val();
+                    if (!id) { return; }
+                    var val = $field.val();
+                    if (val) { val = val + '\n'; }
+                    $field.val(val + id);
+                    $widget.val('');
+                });
+            });
+        });
+    }
 });
