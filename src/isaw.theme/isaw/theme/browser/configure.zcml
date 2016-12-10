@@ -320,4 +320,12 @@
     template="templates/libcollection.pt"
     />
 
+  <browser:page
+    name="isaw-users.json"
+    for="*"
+    permission="cmf.ModifyPortalContent"
+    layer=".interfaces.IThemeSpecific"
+    class=".json_api.UsersVocabularyView"
+    />
+
 </configure>
