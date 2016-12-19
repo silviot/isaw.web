@@ -329,4 +329,14 @@
       import_steps="tinymce_settings jsregistry"
       />
 
+  <genericsetup:upgradeDepends
+      sortkey="10"
+      source="31"
+      destination="32"
+      title="Update login action"
+      description=""
+      profile="isaw.theme:default"
+      import_steps="actions"
+      />
+
 </configure>
