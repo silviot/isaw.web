@@ -5,13 +5,13 @@
 */
 
 
-/* Open Sans 
+/* Open Sans
 by Steve Matteson
 Apache License, version 2.0
 */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400&subset=latin,cyrillic-ext,greek-ext,greek,latin-ext,cyrillic);
 
-/* Questrial 
+/* Questrial
 by Joe Prince
 SIL Open Font License, 1.1
 */
@@ -76,7 +76,7 @@ a {transition: all 0.5s ease; }
     color: black;
     font-size: 24px;
     line-height: 30px;
- } 
+ }
 #portal-top h1 a:hover,
 #portal-top h1 a:focus {opacity: 0.8;}
 #portal-top .identity {display:block; height:179px; left:0px; position:absolute; top:0; width:47px; z-index:6; background-color: #fff;}
@@ -135,7 +135,7 @@ a {transition: all 0.5s ease; }
 #portal-top #portal-searchbox form .LSBox #LSResult #LSShadow fieldset .LSIEFix .LSRow {width:418px; }
 #portal-top #portal-searchbox form .LSBox #LSResult #LSShadow fieldset .LSIEFix .LSRow:hover,
 #portal-top #portal-searchbox form .LSBox #LSResult #LSShadow fieldset .LSIEFix .LSRow.LSHighlight {background:#cac5c1 !important; }
-#portal-top #portal-searchbox form .LSBox #LSResult #LSShadow fieldset .LSIEFix .LSRow a {color:#231F20; display:block; font-size:16px; font-weight:700; margin:0 0 4px; text-decoration:none; } 
+#portal-top #portal-searchbox form .LSBox #LSResult #LSShadow fieldset .LSIEFix .LSRow a {color:#231F20; display:block; font-size:16px; font-weight:700; margin:0 0 4px; text-decoration:none; }
 #portal-top #portal-searchbox form .LSBox #LSResult #LSShadow fieldset .LSIEFix .LSRow a.advancedsearchlink { }
 #portal-top #portal-searchbox form .LSBox #LSResult #LSShadow fieldset .LSIEFix .LSRow .LSDescr {color:#231F20; font-size:14px; }
 
@@ -190,7 +190,7 @@ fieldset#search-field {text-align:left !important; }
 #content #slider .slide .slideroverlay:hover {background-color: rgba(57, 48, 46, 0.8);}
 #content #slider .slide .slideroverlay > * {padding-left: 20px; color:#fff; font-weight:400; font-family:'Open Sans', 'Arial', sans-serif; text-align:left; text-shadow: 1px 1px 3px rgb(57, 48, 46);}
 #content #slider .slide .slideroverlay h3 {font-size:24px; letter-spacing:1px; line-height:100%; margin:0 auto 20px; text-transform:uppercase; }
-#content #slider .slide .slideroverlay p, 
+#content #slider .slide .slideroverlay p,
 #content #slider .slide .slideroverlay ul {font-size:20px; letter-spacing:.1px; line-height:166%; text-transform:none;}
 #content #slider .slide .slideroverlay p {margin-bottom: 1em;}
 #content #slider .slide .slideroverlay a {color:inherit; text-decoration:none; transition: all 0.5s ease-in-out;}
@@ -392,7 +392,7 @@ fieldset#search-field {text-align:left !important; }
 .section-exhibitions #portal-columns ul.navTree.navTreeLevel0 > li:first-child {background:#9e6a4a; }
 .section-events #portal-columns ul.navTree.navTreeLevel0 > li:first-child {background:#66232b; }
 #portal-columns ul.navTree.navTreeLevel0 > li:first-child:hover,
-#portal-columns ul.navTree.navTreeLevel0 > li:first-child:focus {opacity: 0.9;} 
+#portal-columns ul.navTree.navTreeLevel0 > li:first-child:focus {opacity: 0.9;}
 
 .section-graduate-studies #portal-columns ul.navTree.navTreeLevel0 > li:first-child a,
 .section-visiting-scholars #portal-columns ul.navTree.navTreeLevel0 > li:first-child a,
@@ -447,13 +447,13 @@ fieldset#search-field {text-align:left !important; }
 
 
 .footer-row {
-	background:#39302e; 
-	clear:both; 
-	color:#ececec; 
-	font-family:'Open Sans', Arial, Helvetica, sans-serif; 
-	font-size:15px; 
-	font-weight:500; 
-	overflow:auto; 
+	background:#39302e;
+	clear:both;
+	color:#ececec;
+	font-family:'Open Sans', Arial, Helvetica, sans-serif;
+	font-size:15px;
+	font-weight:500;
+	overflow:auto;
 	padding:24px 20px 58px;
     min-height: 6.5em;
 }
@@ -461,10 +461,10 @@ fieldset#search-field {text-align:left !important; }
 //.footer-row #portal-footer .footer-portlet {display:block; float:left; padding:0 5%; width:16%; }
 
 .footer-row #portal-footer .footer-portlet.contact {
-	border-right:1px solid #6b6462; 
-	padding:0 5%; position:absolute; 
-	top:0; 
-	left:0; 
+	border-right:1px solid #6b6462;
+	padding:0 5%; position:absolute;
+	top:0;
+	left:0;
 	width:16%;
 	background-image: url(_images/nyu-isaw-logo-inverse.svg);
     background-origin: content-box;
@@ -531,6 +531,16 @@ fieldset#search-field {text-align:left !important; }
 #content ul.news li a div.blogtile_placeholder {background:url('images/news-default.png') top center no-repeat; background-size: cover; width:100%; height:170px;}
 #portal-columns .post-holder .post-image div.featured_placeholder,
 #content .post-holder .post-image div.featured_placeholder {background:url('images/news-default.png') top center no-repeat; background-size: cover; width: 300px; height: 300px;}
+
+/* Library Collection Listing */
+#portal-columns ul.libcollections, #content ul.libcollections {margin:0; padding:0; overflow: visible;}
+#portal-columns ul.libcollections:after, #content ul.libcollections:after {content: ""; display:table; clear:both;}
+#portal-columns ul.libcollections li, #content ul.libcollections li {display:block; float:left; margin:0 2% 2% 0; width:23%; }
+#portal-columns ul.libcollections li:nth-child(4n), #content ul.libcollections li:nth-child(4n) {margin-right:0; }
+#portal-columns ul.libcollections li:nth-child(4n+1), #content ul.libcollections li:nth-child(4n+1) {clear:left; }
+#portal-columns ul.libcollections li a, #content ul.libcollections li a {text-decoration:none; display: block; width: 100%;}
+#portal-columns ul.libcollections li a img, #content ul.libcollections li a img {display:block; max-width:100%; width: 100%; height: auto; overflow: hidden; border:1px solid #ddd;}
+
 
 #portal-columns .buttons, #content .buttons {text-align:center; }
 #portal-columns a.button.view-more, #content a.button.view-more {padding-right:80px; position:relative; }
@@ -616,7 +626,7 @@ td.event, td.todayevent {
 td.event a, td.todayevent a {
     color: white !important;
 }
-/* section color schemes 
+/* section color schemes
 .section-events #portal-columns h3,
 .section-events #portal-columns dl dt {color:#66232b; }
 .section-events #portal-top::before {background:rgba(102,35,43,.87); }
@@ -844,7 +854,7 @@ h2.CVSectionTitle:before {
 #content .event-listing .event-result .event-result-detail .post-excerpt {color:#575756; }
 .eventRsvp {float: right; margin: 0.25em 0 0 0.25em;}
 
-#portal-columns table.ploneCalendar, 
+#portal-columns table.ploneCalendar,
 #content table.ploneCalendar {width:100%; }
 .fc-header .fc-state-default span {border:none; }
 .fc-header .fc-state-default, .fc-header .fc-state-default a {border:none !important; }
@@ -926,15 +936,15 @@ h2.CVSectionTitle:before {
 	#portal-top {background:#fff !important; display:block; height:52px; min-height:0; width:100%; }
 	#portal-top:before {display:none; }
 	#portal-top h1 {
-		height:52px; 
-		left:34px; 
-		top:0; 
+		height:52px;
+		left:34px;
+		top:0;
 		width:188px;
 		padding: 6px 0; }
 	#portal-top h1 a {
-		background-size:contain; 
-		height:52px; 
-		width:188px; 
+		background-size:contain;
+		height:52px;
+		width:188px;
 		margin-top: 0px;
 		width: 290px;
 	    font-size: 17px;
@@ -944,11 +954,11 @@ h2.CVSectionTitle:before {
 	#portal-top .identity a {height:91px; width:24px; }
 	#portal-top .page-title {display:none; }
 	#portal-top h3.trigger {cursor:pointer; display:block; height:52px; margin:0; position:absolute; right:0; text-indent:-10000px; top:0; width:83px; }
-	#portal-top h3.trigger:before {background:url('_images/trigger-menu.png') center center / 61px no-repeat transparent; content:""; display:block; height:52px; left:0; position:absolute; top:0; width:83px; }	
-	#portal-top h3.trigger:after {background:url('_images/trigger-close.png') center center / 16px no-repeat transparent; content:""; display:block; height:52px; opacity:0; right:0; position:absolute; top:0; visibility:hidden; width:38px; }	
-	#portal-top h3.trigger.open:before {opacity:0; visibility:hidden; }	
+	#portal-top h3.trigger:before {background:url('_images/trigger-menu.png') center center / 61px no-repeat transparent; content:""; display:block; height:52px; left:0; position:absolute; top:0; width:83px; }
+	#portal-top h3.trigger:after {background:url('_images/trigger-close.png') center center / 16px no-repeat transparent; content:""; display:block; height:52px; opacity:0; right:0; position:absolute; top:0; visibility:hidden; width:38px; }
+	#portal-top h3.trigger.open:before {opacity:0; visibility:hidden; }
 	#portal-top h3.trigger.open:after {opacity:1; visibility:visible; }
-	
+
 	#portal-top #main-navigation {display:none; position:absolute; right:0; top:52px; width:320px; }
 	#portal-top #main-navigation.open {display:block; z-index: 2000; }
 	#portal-top #main-navigation ul#primary {height:auto; padding:0; position:static; right:auto; top:auto; }
@@ -973,7 +983,7 @@ h2.CVSectionTitle:before {
 	#viewlet-above-content #portal-breadcrumbs {font-size:10px; line-height:12px; height: 12px; margin-bottom:22px; padding: 14px 20px 13px 56px; text-size-adjust: none; -webkit-text-size-adjust: none;}
 	#viewlet-above-content #portal-breadcrumbs span {margin:0; }
 	/*flexbox it*/
-	#column-contents {padding:0 20px 80px 40px; 
+	#column-contents {padding:0 20px 80px 40px;
 		display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
 		display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
 		display: -ms-flexbox;      /* TWEENER - IE 10 */
@@ -981,7 +991,7 @@ h2.CVSectionTitle:before {
 		display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
 		-ms-flex-direction: column;
 		-webkit-flex-direction: column;
-		flex-direction:column; 
+		flex-direction:column;
 	}
 
 	body.template-newsitem_view #main-column,
@@ -995,8 +1005,8 @@ h2.CVSectionTitle:before {
 	#portal-columns.three #portal-column-content,
 	#portal-columns.three #portal-column-second,
 	#portal-column-first,
-	#portal-column-content {clear:both; float:none; width:100%; 
-		margin-bottom:60px; 
+	#portal-column-content {clear:both; float:none; width:100%;
+		margin-bottom:60px;
 	}
 	.section-isaw-home.template-document_view #portal-column-content {margin-bottom: 0; }
 	#portal-column-first {
@@ -1007,24 +1017,24 @@ h2.CVSectionTitle:before {
 		order: 3;                       /* NEW, Spec - Opera 12.1, Firefox 20+ */
 	}
 	#portal-column-content {
-		-webkit-box-ordinal-group: 1;  
-		-moz-box-ordinal-group: 1;     
-		-ms-flex-order: 1;     
-		-webkit-order: 1;  
+		-webkit-box-ordinal-group: 1;
+		-moz-box-ordinal-group: 1;
+		-ms-flex-order: 1;
+		-webkit-order: 1;
 		order: 1;
 	}
 	#portal-column-second {
-		-webkit-box-ordinal-group: 2;  
-		-moz-box-ordinal-group: 2;     
-		-ms-flex-order: 2;     
-		-webkit-order: 2;  
-		order: 2;		
+		-webkit-box-ordinal-group: 2;
+		-moz-box-ordinal-group: 2;
+		-ms-flex-order: 2;
+		-webkit-order: 2;
+		order: 2;
 	}
 
 	#portal-columns h1, #content h1 {font-size:32px; }
 	#portal-columns h2, #content h2 {font-size:26px; }
-	#portal-columns h4, 
-	#portal-columns form fieldset legend, 
+	#portal-columns h4,
+	#portal-columns form fieldset legend,
 	#portal-columns .documentDescription,
     #content h4,
     #content form fieldset legend,
@@ -1032,9 +1042,9 @@ h2.CVSectionTitle:before {
 	#portal-columns blockquote, #content blockquote {padding:20px 30px; }
 	#portal-columns blockquote p, #content blockquote p {font-size:24px; }
 	#portal-columns ul.navTree li.navTreeFolderish::after {display:none; }
-	
+
 	.section-isaw-home.template-document_view #portal-columns {padding:0; }
-	
+
 	#portal-columns ul.news li, #content ul.news li {display:block; margin-right:4%; width:48%; }
 	#portal-columns ul.news li:nth-child(3n), #content ul.news li:nth-child(3n) {margin-right:4%; }
 	#portal-columns ul.news li:nth-child(3n+1), #content ul.news li:nth-child(3n+1) {clear:none; }
