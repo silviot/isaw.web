@@ -12,26 +12,26 @@
 
     <div tal:define="libcollections python:context.getFolderContents(contentFilter={'portal_type': 'isaw.policy.libcollection'})">
 
-        <ul class="libcollections" >
+        <div class="box-set" >
           <tal:items tal:repeat="brain libcollections">
-            <li tal:define="libcoll python:brain.getObject();
-                            collection_id libcoll/id;
-                            collection_url libcoll/absolute_url;
-                            has_image python:getattr(libcoll, 'image', False);
-                            image_url string:${collection_url}/@@images/image/mini;
-                          ">
+            <a tal:define="libcoll python:brain.getObject();
+                           collection_id libcoll/id;
+                           collection_url libcoll/absolute_url;
+                           has_image python:getattr(libcoll, 'image', False);
+                           image_url string:${collection_url}/@@images/image/mini;"
+               tal:attributes="href libcoll/absolute_url">
 
-              <a tal:attributes="href libcoll/absolute_url">
+              <div class="box-content">
                 <img src="" tal:condition="has_image" tal:attributes="src image_url"/>
                 <span tal:condition="not:has_image">&nbsp;</span>
                 <div>
                   <h3 tal:content="libcoll/Title">[The Title]</h3>
                 </div>
-              </a>
+              </div>
 
-            </li>
+            </a>
           </tal:items>
-        </ul>
+        </div>
 
    </div>
 
