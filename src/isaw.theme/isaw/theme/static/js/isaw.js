@@ -265,9 +265,16 @@ jQuery(function($) {
         $breadcrumb.text(text);
     });
 
-    // Publication edit form bling
+    // Publication or news edit form bling
+    var $people_widgets = [];
     var $pub_edit_form = $('body.template-edit.portaltype-isaw-policy-publication #content-core form, body.template-isaw-policy-publication #content-core form');
-    var $people_widgets = $pub_edit_form.find('#formfield-form-widgets-authors, #formfield-form-widgets-editors, #formfield-form-widgets-contributors');
+    var $news_edit_form = $('body.template-atct_edit.portaltype-news-item #content form');
+    if ($pub_edit_form.length) {
+        $people_widgets = $pub_edit_form.find('#formfield-form-widgets-authors, #formfield-form-widgets-editors, #formfield-form-widgets-contributors');
+    }
+    if ($news_edit_form.length) {
+        $people_widgets = $news_edit_form.find('#creators, #contributors');
+    }
     if ($people_widgets.length) {
         $.getJSON('isaw-users.json').done(function (data) {
             var $select = $('<select><option value=""></option></select>');
