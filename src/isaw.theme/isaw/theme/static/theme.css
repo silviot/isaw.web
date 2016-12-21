@@ -535,7 +535,7 @@ fieldset#search-field {text-align:left !important; }
 /* Library Collection Listing */
 #portal-columns ul.libcollections, #content ul.libcollections {margin:0; padding:0; overflow: visible;}
 #portal-columns ul.libcollections:after, #content ul.libcollections:after {content: ""; display:table; clear:both;}
-#portal-columns ul.libcollections li, #content ul.libcollections li {background-color: #fffbf8; border: 1px solid #999; padding: 1.2%; overflow: hidden; height: 400px; display:block; float:left; margin:0 2% 2% 0; width:20.5%; }
+#portal-columns ul.libcollections li, #content ul.libcollections li {background-color: #fffbf8; border: 1px solid #999; padding: 1.2%; overflow: hidden; height: 380px; display:block; float:left; margin:0 2% 2% 0; width:20.5%; }
 #portal-columns ul.libcollections li:hover, #content ul.libcollections li:hover {background-color: #fff;}
 #portal-columns ul.libcollections li:nth-child(4n), #content ul.libcollections li:nth-child(4n) {margin-right:0; }
 #portal-columns ul.libcollections li:nth-child(4n+1), #content ul.libcollections li:nth-child(4n+1) {clear:left; }
@@ -1052,7 +1052,7 @@ h2.CVSectionTitle:before {
 	#portal-columns ul.news li:nth-child(2n), #content ul.news li:nth-child(2n) {margin-right:0; }
 	#portal-columns ul.news li:nth-child(2n+1), #content ul.news li:nth-child(2n+1) {clear:left; }
 
-    #portal-columns ul.libcollections li, #content ul.libcollections li {display:block; margin-right:4%; width:27.6%; }
+    #portal-columns ul.libcollections li, #content ul.libcollections li {display:block; margin-right:4%; height: 360px; width:27.6%; }
     #portal-columns ul.libcollections li:nth-child(2n), #content ul.libcollections li:nth-child(2n) {margin-right:4%; }
     #portal-columns ul.libcollections li:nth-child(2n+1), #content ul.libcollections li:nth-child(2n+1) {clear:none; }
     #portal-columns ul.libcollections li:nth-child(3n), #content ul.libcollections li:nth-child(3n) {margin-right:0; }
@@ -1243,7 +1243,7 @@ div.leaflet-control-geosearch.leaflet-control {
     .PublicationImage { max-width: 100%; }
     .AccessButton { font-size: 10px; padding: 6px; }
 
-    #portal-columns ul.libcollections li, #content ul.libcollections li {display:block; margin-right:4%; width:45%; }
+    #portal-columns ul.libcollections li, #content ul.libcollections li {display:block; margin-right:4%; height: 370px; width:45%; }
     #portal-columns ul.libcollections li:nth-child(1n), #content ul.libcollections li:nth-child(1n) {margin-right:4%; }
     #portal-columns ul.libcollections li:nth-child(1n+1), #content ul.libcollections li:nth-child(1n+1) {clear:none; }
     #portal-columns ul.libcollections li:nth-child(2n), #content ul.libcollections li:nth-child(2n) {margin-right:0; }
