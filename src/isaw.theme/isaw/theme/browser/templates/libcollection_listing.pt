@@ -25,7 +25,7 @@
                 <img src="" tal:condition="has_image" tal:attributes="src image_url"/>
                 <span tal:condition="not:has_image">&nbsp;</span>
                 <div>
-                  <h2 tal:content="libcoll/Title">[The Title]</h2>
+                  <h3 tal:content="libcoll/Title">[The Title]</h3>
                   <p tal:content="libcoll/Description">[Summary]</p>
                 </div>
               </a>

@@ -535,12 +535,13 @@ fieldset#search-field {text-align:left !important; }
 /* Library Collection Listing */
 #portal-columns ul.libcollections, #content ul.libcollections {margin:0; padding:0; overflow: visible;}
 #portal-columns ul.libcollections:after, #content ul.libcollections:after {content: ""; display:table; clear:both;}
-#portal-columns ul.libcollections li, #content ul.libcollections li {display:block; float:left; margin:0 2% 2% 0; width:23%; }
+#portal-columns ul.libcollections li, #content ul.libcollections li {background-color: #fffbf8; border: 1px solid #999; padding: 1.2%; overflow: hidden; height: 400px; display:block; float:left; margin:0 2% 2% 0; width:20.5%; }
+#portal-columns ul.libcollections li:hover, #content ul.libcollections li:hover {background-color: #fff;}
 #portal-columns ul.libcollections li:nth-child(4n), #content ul.libcollections li:nth-child(4n) {margin-right:0; }
 #portal-columns ul.libcollections li:nth-child(4n+1), #content ul.libcollections li:nth-child(4n+1) {clear:left; }
 #portal-columns ul.libcollections li a, #content ul.libcollections li a {text-decoration:none; display: block; width: 100%;}
 #portal-columns ul.libcollections li a img, #content ul.libcollections li a img {display:block; max-width:100%; width: 100%; height: auto; overflow: hidden; border:1px solid #ddd;}
-
+#portal-columns ul.libcollections li h3, #content ul.libcollections li h2 {margin: 4px 0 10px 0 }
 
 #portal-columns .buttons, #content .buttons {text-align:center; }
 #portal-columns a.button.view-more, #content a.button.view-more {padding-right:80px; position:relative; }
@@ -1051,6 +1052,12 @@ h2.CVSectionTitle:before {
 	#portal-columns ul.news li:nth-child(2n), #content ul.news li:nth-child(2n) {margin-right:0; }
 	#portal-columns ul.news li:nth-child(2n+1), #content ul.news li:nth-child(2n+1) {clear:left; }
 
+    #portal-columns ul.libcollections li, #content ul.libcollections li {display:block; margin-right:4%; width:27.6%; }
+    #portal-columns ul.libcollections li:nth-child(2n), #content ul.libcollections li:nth-child(2n) {margin-right:4%; }
+    #portal-columns ul.libcollections li:nth-child(2n+1), #content ul.libcollections li:nth-child(2n+1) {clear:none; }
+    #portal-columns ul.libcollections li:nth-child(3n), #content ul.libcollections li:nth-child(3n) {margin-right:0; }
+    #portal-columns ul.libcollections li:nth-child(3n+1), #content ul.libcollections li:nth-child(3n+1) {clear:left; }
+
 	#viewlet-above-content .post.featured .post-image,
 	#viewlet-above-content .post.featured .post-content {float:none; width:auto; }
 	#viewlet-above-content .post.featured .post-image {margin-bottom:20px; }
@@ -1235,6 +1242,12 @@ div.leaflet-control-geosearch.leaflet-control {
 	#portal-columns ul.news li, #content ul.news li {float:none; margin-right:0 !important; width:100% !important; }
     .PublicationImage { max-width: 100%; }
     .AccessButton { font-size: 10px; padding: 6px; }
+
+    #portal-columns ul.libcollections li, #content ul.libcollections li {display:block; margin-right:4%; width:45%; }
+    #portal-columns ul.libcollections li:nth-child(1n), #content ul.libcollections li:nth-child(1n) {margin-right:4%; }
+    #portal-columns ul.libcollections li:nth-child(1n+1), #content ul.libcollections li:nth-child(1n+1) {clear:none; }
+    #portal-columns ul.libcollections li:nth-child(2n), #content ul.libcollections li:nth-child(2n) {margin-right:0; }
+    #portal-columns ul.libcollections li:nth-child(2n+1), #content ul.libcollections li:nth-child(2n+1) {clear:left; }
 }
 
 @media screen and (max-width:319px){
