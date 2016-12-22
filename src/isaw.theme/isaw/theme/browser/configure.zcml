@@ -362,4 +362,13 @@
     class=".json_api.UsersVocabularyView"
     />
 
+  <!-- Library Collection listing view -->
+  <browser:page
+    name="libcollection-listing"
+    for="*"
+    permission="zope2.View"
+    layer=".interfaces.IThemeSpecific"
+    template="templates/libcollection_listing.pt"
+    />
+
 </configure>
