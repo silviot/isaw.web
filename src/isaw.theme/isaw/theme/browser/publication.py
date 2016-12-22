@@ -33,13 +33,13 @@ class PublicationView(BibItemView):
                 continue
             info = mt.getMemberInfo(author)
             if info:
-                profile = profile_view.profile_for(info)
+                fullname = info.get('fullname', author)
+                profile = profile_view.profile_for(author)
                 if profile:
                     url = profile.url
                 else:
-                    url = '%s/search?SearchableText=%s' % (ut(), author)
-                members.append('<a href="%s">%s</a>' % (url,
-                                info.get('fullname', author)))
+                    url = '%s/search?SearchableText=%s' % (ut(), fullname)
+                members.append('<a href="%s">%s</a>' % (url, fullname))
             else:
                 members.append(author)
         return members
