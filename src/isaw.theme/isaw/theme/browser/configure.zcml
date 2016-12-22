@@ -371,4 +371,28 @@
     template="templates/libcollection_listing.pt"
     />
 
+    <browser:menuItem
+        for="Products.ATContentTypes.interface.IATFolder"
+        menu="plone_displayviews"
+        title="Box Listing"
+        action="@@libcollection-listing"
+        description="List folder contents in a responsive grid of linked boxes."
+        />
+
+    <browser:menuItem
+        for="Products.ATContentTypes.interface.IATTopic"
+        menu="plone_displayviews"
+        title="Box Listing"
+        action="@@libcollection-listing"
+        description="List folder contents in a responsive grid of linked boxes."
+        />
+
+    <browser:menuItem
+        for="plone.app.collection.interfaces.ICollection"
+        menu="plone_displayviews"
+        title="Box Listing"
+        action="@@libcollection-listing"
+        description="List folder contents in a responsive grid of linked boxes."
+        />    
+
 </configure>
