@@ -320,27 +320,4 @@
     template="templates/libcollection_listing.pt"
     />
 
-<!--     <browser:menuItem
-        for="Products.ATContentTypes.interface.IATFolder"
-        menu="plone_displayviews"
-        title="Title-Only Listing"
-        action="@@title-listing"
-        description="List folder contents by title only"
-        />
-
-    <browser:menuItem
-        for="Products.ATContentTypes.interface.IATTopic"
-        menu="plone_displayviews"
-        title="Title-Only Listing"
-        action="@@title-listing"
-        description="List folder contents by title only"
-        />
-
-    <browser:menuItem
-        for="plone.app.collection.interfaces.ICollection"
-        menu="plone_displayviews"
-        title="Title-Only Listing"
-        action="@@title-listing"
-        description="List folder contents by title only"
-        /> -->
 </configure>
