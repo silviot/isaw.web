@@ -273,7 +273,7 @@ jQuery(function($) {
         $people_widgets = $pub_edit_form.find('#formfield-form-widgets-authors, #formfield-form-widgets-editors, #formfield-form-widgets-contributors');
     }
     if ($news_edit_form.length) {
-        $people_widgets = $news_edit_form.find('#creators, #contributors');
+        $people_widgets = $news_edit_form.find('#archetypes-fieldname-creators, #archetypes-fieldname-contributors');
     }
     if ($people_widgets.length) {
         $.getJSON('isaw-users.json').done(function (data) {
