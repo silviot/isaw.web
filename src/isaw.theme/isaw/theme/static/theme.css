@@ -887,9 +887,9 @@ h2.CVSectionTitle:before {
 }
 
 .PublicationImage {
-    width: 450px;
-    max-width:50%;
+    max-width: 40%;
     float: left;
+    margin-right: 20px;
 }
 
 .PublicationImage img {
@@ -898,8 +898,8 @@ h2.CVSectionTitle:before {
 }
 
 .PublicationBody {
-    width: 45%;
-    float: right;
+    max-width: calc(60% - 20px);
+    overflow: hidden;
 }
 
 .PublicationInfo ul {
@@ -929,10 +929,12 @@ h2.CVSectionTitle:before {
 
 .PublicationCardImage {
     float: left;
+    overflow: hidden;
+    max-width: 125px;
 }
 
 .PublicationCardImage img {
-    max-width: 125px !important;
+    max-width: 100%;
     width: auto;
     max-height: 97px;
     height: auto;
@@ -952,16 +954,21 @@ h2.CVSectionTitle:before {
 }
 
 @media screen and (max-width:1160px){
-    .PublicationCard {
-        margin: 2%;
-        width: 42%;
-        height: 200px;
-    }
     .PublicationCardBody {
         width: auto;
         max-width: 70%;
         margin-left: 10px;
         font-size: 1em;
+    }
+    .PublicationCardImage {
+        max-width: calc(30% - 10px);
+    }
+}
+@media screen and (max-width:600px){
+    .PublicationCard {
+        width: calc(100% - 20px);
+        margin: 2% 20px 2% 0;
+        height: auto;
     }
 }
 
@@ -1294,7 +1301,6 @@ div.leaflet-control-geosearch.leaflet-control {
 	#content #slider .slide .slideroverlay p {font-size:16px; }
 
 	#portal-columns ul.news li, #content ul.news li {float:none; margin-right:0 !important; width:100% !important; }
-    .PublicationImage { max-width: 100%; }
     .AccessButton { font-size: 10px; padding: 6px; }
 
     #portal-columns .box-set a, #content .box-set a {display:block; margin-right:4%; height: 370px; width:45%; }
@@ -1302,12 +1308,6 @@ div.leaflet-control-geosearch.leaflet-control {
     #portal-columns .box-set a:nth-child(1n+1), #content .box-set a:nth-child(1n+1) {clear:none; }
     #portal-columns .box-set a:nth-child(2n), #content .box-set a:nth-child(2n) {margin-right:0; }
     #portal-columns .box-set a:nth-child(2n+1), #content .box-set a:nth-child(2n+1) {clear:left; }    
-}
-
-@media screen and (max-width:520px){
-    .PublicationCard {
-        width: 96%;
-    }
 }
 
 @media screen and (max-width:319px){
