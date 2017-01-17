@@ -393,6 +393,6 @@
         title="Box Listing"
         action="@@libcollection-listing"
         description="List folder contents in a responsive grid of linked boxes."
-        />    
+        />
 
 </configure>
