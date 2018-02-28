@@ -1,8 +1,10 @@
 <p class="bypassBlock"
    i18n:domain="plone">
-  <a accesskey="2" href="#content"
-     i18n:translate="label_skiptocontent">Skip to content.</a> |
-
-  <a accesskey="6" href="#main-navigation"
+  <a accesskey="2"
+     href="#content"
+     i18n:translate="label_skiptocontent">Skip to main</a>
+  |
+  <a accesskey="6"
+     href="#main-navigation"
      i18n:translate="label_skiptonavigation">Skip to navigation</a>
 </p>
