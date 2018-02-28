@@ -1,10 +1,14 @@
 <p class="bypassBlock"
    i18n:domain="plone">
   <a accesskey="2"
+     aria-label="skip to main"
      href="#content"
-     i18n:translate="label_skiptocontent">Skip to main</a>
+     i18n:translate="label_skiptocontent"
+     role="complementary">Skip to main content</a>
   |
   <a accesskey="6"
+     aria-label="skip to navigation"
      href="#main-navigation"
-     i18n:translate="label_skiptonavigation">Skip to navigation</a>
+     i18n:translate="label_skiptonavigation"
+     role="complementary">Skip to navigation</a>
 </p>
