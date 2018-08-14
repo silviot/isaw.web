@@ -28,6 +28,7 @@ src/isaw.bibitems
 src/plone.app.imagecropping
 src/collective.saml2
 src/dm.zope.saml2
+src/collective.contentleadimage
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
