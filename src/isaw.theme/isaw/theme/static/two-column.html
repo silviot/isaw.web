@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Plone site</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     
@@ -21,23 +22,27 @@
 		<h1><a href="/">Institute for the Study of the Ancient World at NYU</a></h1>
 		<div class="identity"><a href="/">ISAW</a></div>
 		<h3 class="trigger">Menu</h3>
-		<nav id="main-navigation">
-			<ul id="primary">
-				<li class="graduate"><a href="#">Graduate Studies</a></li>
-				<li class="visiting"><a href="#">Visiting Scholars</a></li>
-				<li class="exhibitions"><a href="#">Exhibitions</a></li>
-				<li class="events"><a href="#">Events</a></li>
-			</ul>
-			<ul id="secondary">
-				<li><a href="#">About ISAW</a></li>
-				<li><a href="#">Our People</a></li>
-				<li><a href="#">Library</a></li>
-				<li><a href="#">Resources &amp; Publications</a></li>
-				<li><a href="#">Research</a></li>
-				<li><a href="#">News</a></li>
-				<li class="search"><a href="#">Search</a></li>
-			</ul>
-		</nav>
+        <div id="main-navigation">
+            <nav aria-label="Main menu" role="navigation">
+                <ul id="primary">
+                    <li class="graduate"><a href="#">Graduate Studies</a></li>
+                    <li class="visiting"><a href="#">Visiting Scholars</a></li>
+                    <li class="exhibitions"><a href="#">Exhibitions</a></li>
+                    <li class="events"><a href="#">Events</a></li>
+                </ul>
+            </nav>
+            <nav aria-label="Topbar menu" role="navigation">
+                <ul id="secondary">
+                    <li><a href="#">About ISAW</a></li>
+                    <li><a href="#">Our People</a></li>
+                    <li><a href="#">Library</a></li>
+                    <li><a href="#">Resources &amp; Publications</a></li>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="#">News</a></li>
+                    <li class="search"><a href="#">Search</a></li>
+                </ul>
+            </nav>
+        </div>
 		<div class="page-title">
 			<h2 class="section-title">Our People</h2>
 		</div>
@@ -45,9 +50,9 @@
     
     <div id="portal-columns">
 		<div id="viewlet-above-content">
-			<div id="portal-breadcrumbs">
+			<nav id="portal-breadcrumbs" role="navigation" aria-label="breadcrumbs">
 				<span id="breadcrumbs-home"><a href="http://plonedemo.com">Home</a></span> > <span><a href="http://plonedemo.com">Our People</a></span> > <span><a href="http://plonedemo.com">Faculty</a></span>
-			</div>
+			</nav>
 		</div>
 
 		<div id="column-contents">
@@ -96,7 +101,7 @@
 
 
                     
-                        <div id="content">
+                        <main id="content" role="main">
 
                             
 
@@ -459,7 +464,7 @@ Table of class <code>vertical listing</code>
 </div>
 
 
-                        </div>
+                        </main>
                     
 
                     
@@ -478,31 +483,31 @@ Table of class <code>vertical listing</code>
 	<div class="visualClear"></div>
     
     <div class="footer-row">
-        <div id="portal-footer">
-			<div class="contact footer-portlet">
-				<h3>Contact</h3>
-				<p>15 East 84th St.<br />New York, NY 10028<br />212-992-7800<br /><a href="mailto:isaw@nyu.edu">isaw@nyu.edu</a></p>
-			</div>
-			<div class="support footer-portlet">
-				<h3 class="support"><a href="#">Support ISAW</a></h3>
-				<ul>
-					<li><a href="#">Apply to ISAW</a></li>
-					<li><a href="#">Careers at ISAW</a></li>
-					<li><a href="#">Login</a></li>
-				</ul>
-			</div>
-			<div class="hours footer-portlet">
-				<h3>Gallery Hours</h3>
-				<p><strong>Tues-Sun</strong> 11am-6pm</p>
-				<p><strong>Friday</strong> 11am-8pm</p>
-				<p><strong>Closed Monday</strong></p>
-			</div>
-			<div class="hours footer-portlet">
-				<h3>Library Hours</h3>
-				<p><strong>Mon-Fri</strong> 9am-5pm</p>
-			</div>
+        <footer id="portal-footer" role="contentinfo">
+            <div class="contact footer-portlet">
+                <h3>Contact</h3>
+                <p>15 East 84th St.<br />New York, NY 10028<br />212-992-7800<br /><a href="mailto:isaw@nyu.edu">isaw@nyu.edu</a></p>
+            </div>
+            <div class="support footer-portlet">
+                <h3 class="support"><a href="#">Support ISAW</a></h3>
+                <ul>
+                    <li><a href="#">Apply to ISAW</a></li>
+                    <li><a href="#">Careers at ISAW</a></li>
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </div>
+            <div class="hours footer-portlet">
+                <h3>Gallery Hours</h3>
+                <p><strong>Tues-Sun</strong> 11am-6pm</p>
+                <p><strong>Friday</strong> 11am-8pm</p>
+                <p><strong>Closed Monday</strong></p>
+            </div>
+            <div class="hours footer-portlet">
+                <h3>Library Hours</h3>
+                <p><strong>Mon-Fri</strong> 9am-5pm</p>
+            </div>
 
-        </div>
+        </footer>
     </div>
 </div></body>
 </html>
