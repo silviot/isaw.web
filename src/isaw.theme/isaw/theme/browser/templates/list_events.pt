@@ -12,8 +12,11 @@
                 exerpt item/Description">
       <a href="#" tal:attributes="href item_url"
          tal:condition="item/hasContentLeadImage">
+        <img tal:attributes="src string:${item_url}/leadImage_mini"
+             tal:condition="not:item/contentLeadImageAltText|nothing" />
         <img tal:attributes="src string:${item_url}/leadImage_mini;
-                             alt item/contentLeadImageAltText" />
+                             alt item/contentLeadImageAltText"
+             tal:condition="item/contentLeadImageAltText|nothing" />
       </a>
       <a href="#" tal:attributes="href item_url"><h3 tal:content="item/Title">[title]</h3></a>
       <p tal:condition="item/subtitle" tal:content="item/subtitle">Subtitle</p>
