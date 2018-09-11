@@ -12,12 +12,22 @@
 
   <includeDependencies package="." />
 
+  <!-- These two need to be included explicitly for some reason: -->
+  <include package="Products.CMFPlacefulWorkflow" />
+  <include package="plone.app.iterate" />
+
   <include file="profile.zcml" />
   <!-- -*- extra stuff goes here -*- -->
 
   <adapter
       name="isaw.policy.event_extender"
       factory=".events.ISAWEventExtender"
+      provides="archetypes.schemaextender.interfaces.ISchemaExtender"
+      />
+
+  <adapter
+      name="isaw.policy.news_extender"
+      factory=".news_extender.NewsItemExtender"
       provides="archetypes.schemaextender.interfaces.ISchemaExtender"
       />
 
