@@ -354,6 +354,7 @@
       />
 
   <genericsetup:upgradeSteps
+      profile="isaw.policy:default"
       sortkey="11"
       source="34"
       destination="35">
@@ -361,7 +362,6 @@
     <genericsetup:upgradeStep
         title="Install SAML2 auth components"
         description=""
-        profile="isaw.policy:default"
         handler=".setuphandlers.setup_saml2"
     />
 
