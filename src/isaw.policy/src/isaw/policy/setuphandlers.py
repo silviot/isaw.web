@@ -4,8 +4,9 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import _createObjectByType
 from Products.PortalTransforms.Transform import make_config_persistent
 from dm.zope.saml2.attribute import AttributeConsumingService
-from dm.zope.saml2.spsso.plugin import IntegratedSimpleSpssoPlugin
 from dm.zope.saml2.attribute import RequestedAttribute
+from dm.zope.saml2.authority import SamlAuthority
+from dm.zope.saml2.spsso.plugin import IntegratedSimpleSpssoPlugin
 
 
 def install_addons(context):
@@ -214,9 +215,7 @@ def setup_portal_transforms(context):
     trans._p_changed = True
     trans.reload()
 
-
 def add_saml_authority_object(context):
-    from dm.zope.saml2.authority import SamlAuthority
     portal = getToolByName(context, 'portal_url').getPortalObject()
     portal_url = portal.absolute_url()
     # XXX Trying to make an ID related to the instance somehow:
@@ -234,7 +233,11 @@ def add_saml_authority_object(context):
 
 
 def add_saml_requested_attribute_to(attribute_service, id, title):
-    attribute = RequestedAttribute(title=title, format='uri', type='string')
+    attribute = RequestedAttribute(
+        title=title,
+        format='urn:oasis:names:tc:SAML:2.0:attrname-format:uri',
+        type='string'
+    )
     attribute.id = id
     attribute_service._setObject(attribute.id, attribute)
     attribute = attribute_service._getOb(attribute.id)
@@ -288,3 +291,9 @@ def add_spsso_plugin_and_its_children(context):
     add_saml_requested_attributes_to(service)
 
     return plugin
+
+
+def setup_saml2(context):
+    add_saml_authority_object(context)
+    add_spsso_plugin_and_its_children(context)
+    return True
