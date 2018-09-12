@@ -353,14 +353,24 @@
       import_steps="contentrules"
       />
 
-  <genericsetup:upgradeStep
+  <genericsetup:upgradeSteps
       sortkey="11"
       source="34"
-      destination="35"
-      title="Install SAML2 auth components"
-      description=""
-      profile="isaw.policy:default"
-      handler=".setuphandlers.setup_saml2"
-      />
+      destination="35">
+
+    <genericsetup:upgradeStep
+        title="Install SAML2 auth components"
+        description=""
+        profile="isaw.policy:default"
+        handler=".setuphandlers.setup_saml2"
+    />
+
+    <genericsetup:upgradeDepends
+        title="Add /logged_in action for SAML2"
+        description=""
+        import_steps="actions"
+    />      
+
+  </genericsetup:upgradeSteps>      
 
 </configure>
