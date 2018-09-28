@@ -44,23 +44,53 @@ OS X Only
     $ brew install libxml2 libxslt libxmlsec1 openssl
 
 .. note:: Please note that with the exception of libxmlsec1 these are all keg-only.
-          Make note of the installation directory (It should be /usr/local/opt/<packagename>)
+          Make note of the installation directory (It should be /usr/local/Cellar/<packagename>)
 
-2. Create a virtual environment::
+          Recent versions of Homebrew will add a version-specific subdirectory, and place
+          the "keg"'s /bin directory inside this subdirectory. You will need the full path
+          to the /bin directories in step 3 below, as in the example shown in that step.
 
-    $ virtualenv saml2env
+2. Create a virtual environment, specifying a current Python 2.7.x::
+
+    $ virtualenv --python /usr/local/bin/python2.7 saml2env
     $ cd saml2env
     $ bin/python -m pip install -U pip setuptools
 
 3. Temporarily set your system PATH to include the installed packages' config
    binaries (**do not do this permanently**)::
 
-    $ export BASE=/usr/local/opt  # this is the install directory from step 1 above
-    $ export PATH=$BASE/libxml2/bin:$BASE/libxslt/bin:$BASE/libxmlsec1/bin:$PATH
+    $ export BASE=/usr/local/Cellar  # this is the install directory from step 1 above
+    $ export PATH=$BASE/libxml2/<version_dir>/bin:$BASE/libxslt/<version_dir>bin:$BASE/libxmlsec1/<version_dir>bin:$PATH
 
-4. pip install the Python packages required::
+    An example using version directories which may not match your own:
 
-    $ bin/python -m pip install lxml pyxb dm.xmlsec.binding cssselect
+    ``export PATH=$BASE/libxml2/2.9.7/bin:$BASE/libxslt/1.1.32/bin:$BASE/libxmlsec1/1.2.26/bin:$PATH``
+
+4. Confirm that the necessary binaries are available in your PATH by running
+   the following commands::
+
+    $ xml2-config
+    Usage: xml2-config [OPTION]
+    ...
+
+    $ xslt-config
+    Usage: xslt-config [OPTION]...
+    ...
+
+    $ xmlsec1-config
+    Usage: xmlsec1-config [OPTION]...
+    ...
+
+   If any of these fail to echo a usage summary, then something is not right
+   with either your PATH or the installation of the system packages themselves.
+
+5. pip install the Python packages required, specifying the versions used
+   in versions.cfg::
+
+    $ bin/pip install lxml==3.2.5
+    $ bin/pip install pyxb==1.2.5
+    $ bin/pip install dm.xmlsec.binding==1.3.2
+    $ bin/pip install cssselect==1.0.0
 
 All Systems
 ===========
@@ -83,7 +113,7 @@ Ubuntu) or skipped (on OS X).
 
 2. Delete the package::
 
-    $ rm /path/to/buildout/cache/lxml-2.3.6-py2.7-macosx-10.10-intel.egg
+    $ rm -rf /path/to/buildout/cache/lxml-2.3.6-py2.7-macosx-10.10-intel.egg
 
 3. Delete other artifacts to force full re-build::
 
@@ -92,14 +122,22 @@ Ubuntu) or skipped (on OS X).
 In all cases
 ------------
 
-Bootstrap the buildout::
+Bootstrap the buildout, specifying zc.buildout version 1.7.1::
 
-      OS X: $ /path/to/saml2env/bin/python bootstrap.py -c buildout.cfg
-    Ubuntu: $ python bootstrap.py -c buildout.cfg
+      OS X: $ /path/to/saml2env/bin/python bootstrap.py -v 1.7.1 -c buildout.cfg
+    Ubuntu: $ python bootstrap.py -v 1.7.1 -c buildout.cfg
 
 Run the buildout::
 
-    $ bin/buildout -c buildout.cfg
+    $ bin/buildout -v -c buildout.cfg
+
+You should see a confirmation in the logging output that ``lxml``, ``pyxb``, 
+``dm.xmlsec.binding``, and ``cssselect`` are treated as already installed::
+
+    ...
+    Egg from site-packages: dm.xmlsec.binding 1.3.2
+    Egg from site-packages: PyXB 1.2.5
+    ...
 
 
 Troubleshooting Setup
@@ -112,10 +150,11 @@ installation of dm.xmlsec.binding. Start by firing up the ``zopepy`` interpreter
 
 Next, attempt to import and initialize the ``dm.xmlsec.binding`` package:
 
-.. code-block:: pycon
+.. code-block:: python
 
     >>> import dm.xmlsec.binding as xmlsec
     >>> xmlsec.initialize()
+    >>>
 
 If you receive an error regarding missing Symbols from lxml.etree, then there
 is a problem with how lxml was built. It does not have access to the
@@ -138,7 +177,13 @@ There are a few additional notes for this first step in the plugin documentation
 
 1. Despite the note that no certificate or key are required for setting up a
    Service Provider, the NYU IdP would like very much for there to be one
-   present. Please note that the certificate **must** be in DER format.
+   present. The .pem component of the certificate can be extracted from
+   /conf/shibboleth_metadata.xml, and then adding ``-----BEGIN CERTIFICATE-----``
+   and ``-----END CERTIFICATE-----`` lines before and after.
+   See the final part of the inspected certificate output
+   `here <https://wiki.shibboleth.net/confluence/display/CONCEPT/SAMLKeysAndCertificates>`_
+   for an example of how this should look.
+
    Instructions on determining the format of a certificate using ``openssl``
    `can be found here <https://support.ssl.com/Knowledgebase/Article/View/19/0/der-vs-crt-vs-cer-vs-pem-certificates-and-how-to-convert-them>`_.
 
