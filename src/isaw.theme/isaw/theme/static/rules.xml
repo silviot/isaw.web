@@ -71,14 +71,22 @@
     </replace>
     
     <!-- Header -->
+    <replace css:content-children="li#siteaction-search">
+      <button aria-label="search toggle">Search</button>
+    </replace>
+
     <replace css:theme-children="#main-navigation #secondary"
              css:content-children="#portal-siteactions" />
 
     <replace css:theme-children="#main-navigation #primary"
              css:content-children="#portal-globalnav" />
 
-    <replace css:theme="#portal-searchbox"
-             css:content="#portal-searchbox" />
+    <copy css:theme="#searchGadget_form"
+          css:content="#searchGadget_form"
+          attributes="action"/>
+
+    <replace css:theme-children="#searchGadget_form"
+             css:content-children="#searchGadget_form" />
 
     <replace css:content-children="#footer-support-link">
       <xsl:attribute name="href">
