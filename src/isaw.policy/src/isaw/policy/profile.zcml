@@ -356,8 +356,8 @@
   <genericsetup:upgradeSteps
       profile="isaw.policy:default"
       sortkey="11"
-      source="34"
-      destination="35">
+      source="36"
+      destination="37">
 
     <genericsetup:upgradeStep
         title="Install SAML2 auth components"
@@ -369,8 +369,18 @@
         title="Add /logged_in action for SAML2"
         description=""
         import_steps="actions"
-    />      
+    />
 
-  </genericsetup:upgradeSteps>      
+  </genericsetup:upgradeSteps>
+
+  <genericsetup:upgradeDepends
+      sortkey="11"
+      source="37"
+      destination="38"
+      title="Fix caching settings to use FieldRefs"
+      description=""
+      profile="isaw.policy:default"
+      import_steps="plone.app.registry"
+      />
 
 </configure>
