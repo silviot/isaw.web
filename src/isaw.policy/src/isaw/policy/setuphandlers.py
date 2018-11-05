@@ -272,7 +272,7 @@ def add_saml_requested_attributes_to(attribute_service):
     attributes = []
     todo = [
         {
-            'id': 'sn',
+            'id': 'sn',  # abbreviation for surname
             'title': 'urn:oid:2.5.4.4',
         },
         {
@@ -280,7 +280,7 @@ def add_saml_requested_attributes_to(attribute_service):
             'title': 'urn:oid:2.5.4.42',
         },
         {
-            'id': 'eduPersonPrincipalName',
+            'id': 'eduPersonPrincipalName',  # email address, and our shared ID
             'title': 'urn:oid:1.3.6.1.4.1.5923.1.1.1.6',
         },
     ]
