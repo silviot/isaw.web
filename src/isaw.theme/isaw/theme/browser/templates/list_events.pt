@@ -17,7 +17,7 @@
         <img tal:attributes="src string:${item_url}/leadImage_mini;
                              alt item/contentLeadImageAltText"
              tal:condition="item/contentLeadImageAltText|nothing" />
-        <h3 tal:content="item/Title">[title]</h3>
+        <h2 tal:content="item/Title">[title]</h2>
       </a>
       <a href="#" tal:attributes="href item_url"
                   tal:condition="not:item/hasContentLeadImage"><h3 tal:content="item/Title">[title]</h3></a>
