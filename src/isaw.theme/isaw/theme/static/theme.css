@@ -1367,7 +1367,15 @@ div.leaflet-control-geosearch.leaflet-control {
     -webkit-text-decoration-color: #66262d;
             text-decoration-color: #66262d;
 }
-#content a:hover, #content a:focus,
+#content a:hover, #content a:focus {
+    -webkit-text-decoration-line: underline;
+            text-decoration-line: underline;
+    -webkit-text-decoration-style: dashed;
+            text-decoration-style: dashed;
+    -webkit-text-decoration-color: blue;
+            text-decoration-color: blue;
+    color: blue !important;
+}
 #content a:hover h2, #content a:focus h2,
 #content a:hover h3, #content a:focus h3,
 #content a:hover h4, #content a:focus h4,
@@ -1375,13 +1383,8 @@ div.leaflet-control-geosearch.leaflet-control {
 #content h2 a:hover, #content h2 a:focus,
 #content h3 a:hover, #content h3 a:focus,
 #content h4 a:hover, #content h4 a:focus,
-#content h5 a:hover, #content h5 a:focus {
-    -webkit-text-decoration-line: underline;
-            text-decoration-line: underline;
-    -webkit-text-decoration-style: dashed;
-            text-decoration-style: dashed;
-    -webkit-text-decoration-color: blue;
-            text-decoration-color: blue;
+#content h5 a:hover, #content h5 a:focus,
+#content a:hover p, #content a:focus p {
     color: blue !important;
 }
 #content a:active {
