@@ -6,6 +6,7 @@ from Products.PortalTransforms.Transform import make_config_persistent
 from dm.zope.saml2.attribute import AttributeConsumingService
 from dm.zope.saml2.attribute import RequestedAttribute
 from dm.zope.saml2.authority import SamlAuthority
+from dm.zope.saml2.entity import EntityByUrl
 from dm.zope.saml2.spsso.plugin import IntegratedSimpleSpssoPlugin
 from isaw.policy import config
 
@@ -215,6 +216,19 @@ def setup_portal_transforms(context):
     trans.reload()
 
 
+def add_saml_identity_provider_entity_to(saml2_authority):
+    identity_provider = EntityByUrl(
+        specified_title=config.SAML_IDENTITY_PROVDER_TITLE,
+        url=config.SAML_IDENTITY_PROVDER_URL
+    )
+    identity_provider.id = config.SAML_IDENTITY_PROVDER_URL
+    if identity_provider not in saml2_authority:
+        saml2_authority._setObject(identity_provider.id, identity_provider)
+    identity_provider = saml2_authority._getOb(identity_provider.id)
+
+    return identity_provider
+
+
 def add_saml_authority_object(context):
     portal = getToolByName(context, 'portal_url').getPortalObject()
     portal_url = portal.absolute_url()
@@ -229,8 +243,11 @@ def add_saml_authority_object(context):
         private_key=config.SAML_PRIVATE_KEY_PATH
     )
     authority.id = "saml2auth"
-    portal._setObject(authority.id, authority)
+    if authority.id not in portal:
+        portal._setObject(authority.id, authority)
     authority = portal._getOb(authority.id)
+
+    add_saml_identity_provider_entity_to(authority)
 
     return authority
 
@@ -242,7 +259,8 @@ def add_saml_requested_attribute_to(attribute_service, id, title):
         type='string'
     )
     attribute.id = id
-    attribute_service._setObject(attribute.id, attribute)
+    if attribute.id not in attribute_service:
+        attribute_service._setObject(attribute.id, attribute)
     attribute = attribute_service._getOb(attribute.id)
 
     return attribute
@@ -252,7 +270,7 @@ def add_saml_requested_attributes_to(attribute_service):
     attributes = []
     todo = [
         {
-            'id': 'sn',
+            'id': 'sn',  # abbreviation for surname
             'title': 'urn:oid:2.5.4.4',
         },
         {
@@ -260,7 +278,7 @@ def add_saml_requested_attributes_to(attribute_service):
             'title': 'urn:oid:2.5.4.42',
         },
         {
-            'id': 'eduPersonPrincipalName',
+            'id': 'eduPersonPrincipalName',  # email address, and our shared ID
             'title': 'urn:oid:1.3.6.1.4.1.5923.1.1.1.6',
         },
     ]
@@ -278,7 +296,8 @@ def add_attribute_consuming_service_to(sso_plugin):
         title="SAML2 Attribute Consuming Service"
     )
     service.id = 'saml2sp-attribute-service'
-    sso_plugin._setObject(service.id, service)
+    if service.id not in sso_plugin:
+        sso_plugin._setObject(service.id, service)
     service = sso_plugin._getOb(service.id)
 
     return service
@@ -288,7 +307,8 @@ def add_spsso_plugin_and_its_children(context):
     acl_users = getToolByName(context, 'acl_users')
     plugin = IntegratedSimpleSpssoPlugin(title='SAML2 Service Provider Plugin')
     plugin.id = 'saml2sp'
-    acl_users._setObject(plugin.id, plugin)
+    if plugin.id not in acl_users:
+        acl_users._setObject(plugin.id, plugin)
     plugin = acl_users._getOb(plugin.id)
     service = add_attribute_consuming_service_to(plugin)
     add_saml_requested_attributes_to(service)
