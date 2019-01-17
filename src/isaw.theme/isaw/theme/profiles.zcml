@@ -349,4 +349,14 @@
       import_steps="typeinfo"
       />
 
+  <genericsetup:upgradeDepends
+      sortkey="10"
+      source="33"
+      destination="34"
+      title="people-listing view for Collections"
+      description=""
+      profile="isaw.theme:default"
+      import_steps="typeinfo"
+      />      
+
 </configure>
