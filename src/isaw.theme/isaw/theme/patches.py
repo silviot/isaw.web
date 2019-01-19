@@ -1,11 +1,20 @@
 from cgi import escape
 from xml.sax.saxutils import quoteattr
+from ZODB.blob import Blob
+
+from piexif._common import split_into_segments
+from piexif._common import get_exif_seg
+from piexif._common import merge_segments
+from piexif._exceptions import InvalidImageDataError
 
 from OFS.Image import Image
 from Products.Archetypes.Field import ImageField
 from Products.PluginIndexes.UUIDIndex.UUIDIndex import UUIDIndex
 from Products.TinyMCE.utility import TinyMCE
+from plone.app.imaging import traverse
+from plone.app.blob import scale as blob_scale
 from plone.namedfile.scaling import ImageScale
+from plone.scale import scale
 
 
 _marker = object()
@@ -144,3 +153,62 @@ def _wcag_named_file_image_tag(self, height=_marker, width=_marker, alt=_marker,
 
 def named_file_image_tag():
     ImageScale.tag =  _wcag_named_file_image_tag
+
+
+def preserve_exif():
+
+    def _preserve_exif(orig_image, new_image):
+        try:
+            segments = split_into_segments(orig_image)
+            exif = get_exif_seg(segments)
+        except InvalidImageDataError:
+            exif = None
+        if exif is None:
+            image = new_image
+        else:
+            segments = split_into_segments(new_image)
+            image = merge_segments(segments, exif)
+        return image
+
+    def scaleImage(image, result=None, **parameters):
+        """Update image scalers to transfer exif data if available"""
+        new_image, format, size = orig_scaleImage(image, result=None, **parameters)
+
+        new_image = _preserve_exif(image, new_image)
+        if result and hasattr(result, 'write'):
+            result.write(new_image)
+            result.seek(0)
+        else:
+            result = new_image
+        return result, format, size
+
+    def blob_create(self, context, **parameters):
+        wrapper = self.field.get(context)
+        if wrapper:
+            try:
+                blob = Blob()
+                result = blob.open('w')
+                _, format, dimensions = scaleImage(wrapper.getBlob().open('r'),
+                                                   result=result, **parameters)
+                result.close()
+                return blob, format, dimensions
+            except IOError:
+                return
+
+    def createScale(self, instance, scale, width, height, data=None):
+        """Preserve EXIF on new images"""
+        try:
+            result = orig_createScale(self, instance, scale, width, height, data)
+        except IOError: # probably bad image type
+            result = None
+        if result:
+            new_image = result['data']
+            orig_image = self.context.getRaw(instance).data
+            new_image = _preserve_exif(orig_image, new_image)
+            result['data'] = new_image
+        return result
+
+    orig_scaleImage = scale.scaleImage
+    blob_scale.BlobImageScaleFactory.create = blob_create
+    orig_createScale = traverse.DefaultImageScaleHandler.createScale
+    traverse.DefaultImageScaleHandler.createScale = createScale
