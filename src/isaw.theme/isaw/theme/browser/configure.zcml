@@ -38,15 +38,6 @@
      allowed_interface=".interfaces.ISSOView"
      />
 
-  <!-- NYU SSO View -->
-  <browser:page
-     name="sso_view"
-     for="*"
-     class=".utilsview.SSOView"
-     permission="zope.Public"
-     allowed_interface=".interfaces.ISSOView"
-     />
-
   <!-- Tiled listing view -->
   <browser:page
     name="tiled-listing"
