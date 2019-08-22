@@ -393,4 +393,14 @@
       import_steps="propertiestool"
       />
 
+  <genericsetup:upgradeDepends
+      sortkey="11"
+      source="39"
+      destination="40"
+      title="Remove PressRoom"
+      description=""
+      profile="isaw.policy:default"
+      import_steps="typeinfo workflow"
+      />
+
 </configure>
