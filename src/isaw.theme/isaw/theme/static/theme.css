@@ -1174,7 +1174,7 @@ h2.CVSectionTitle:before {
     }
 
     #skip {
-	font-size: 100%;
+	font-size: 100% !important;
     }
 }
 
