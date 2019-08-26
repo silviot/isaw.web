@@ -1211,16 +1211,18 @@ h2.CVSectionTitle:before {
 	#portal-columns blockquote, #content blockquote {padding:20px 30px; }
 	#portal-columns blockquote p, #content blockquote p {font-size:24px; }
 	#portal-columns ul.navTree li.navTreeFolderish::after {display:none; }
-	
+
 	body[class*="isaw-home"][class*="section"][class*="template-document_view"] #portal-columns {padding:0; }
-	
+
 	#portal-columns ul.news li, #content ul.news li {display:block; margin-right:4%; width:48%; }
 	#portal-columns ul.news li:nth-child(3n), #content ul.news li:nth-child(3n) {margin-right:4%; }
 	#portal-columns ul.news li:nth-child(3n+1), #content ul.news li:nth-child(3n+1) {clear:none; }
 	#portal-columns ul.news li:nth-child(2n), #content ul.news li:nth-child(2n) {margin-right:0; }
 	#portal-columns ul.news li:nth-child(2n+1), #content ul.news li:nth-child(2n+1) {clear:left; }
 
+    #content #slider .slide .slideroverlay { background-color: transparent;}  
     #slider-container, #slider { height: auto !important; }
+
 	#viewlet-above-content .post.featured .post-image,
 	#viewlet-above-content .post.featured .post-content {float:none; width:auto; }
 	#viewlet-above-content .post.featured .post-image {margin-bottom:20px; }
