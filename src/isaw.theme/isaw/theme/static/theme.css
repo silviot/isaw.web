@@ -1,7 +1,7 @@
 /*
 	background cream color: #fffaf5;
 	body font-family: 'Noto Sans', sans-serif;
-	heading and menu font family: Questrial, 'Noto Sans', sans-serif;
+	heading and menu font family: 'Noto Sans', sans-serif;
 */
 
 
@@ -10,12 +10,6 @@ by Google
 Apache License, version 2.0
 */
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext');
-
-/* Questrial
-by Joe Prince
-SIL Open Font License, 1.1
-*/
-@import url(https://fonts.googleapis.com/css?family=Questrial);
 
 
 /* possible background colors:
@@ -37,7 +31,7 @@ a:after,
 a {transition: all 0.5s ease; }
 
 
-.button {background: transparent; border:2px solid #9b3a25; border-radius:2px; color:#9b3a25; display:inline-block; font-family:Questrial, 'Noto Sans', sans-serif; font-size:13px; font-weight:700; letter-spacing:.8px; line-height:100%; padding:15px 25px; text-align:center; text-decoration:none !important; text-transform:uppercase; }
+.button {background: transparent; border:2px solid #9b3a25; border-radius:2px; color:#9b3a25; display:inline-block; font-family:'Noto Sans', sans-serif; font-size:13px; font-weight:700; letter-spacing:.8px; line-height:100%; padding:15px 25px; text-align:center; text-decoration:none !important; text-transform:uppercase; }
 .button:hover,
 .button:focus,
 #content a.button:hover,
@@ -61,7 +55,7 @@ a {transition: all 0.5s ease; }
 	text-align:left;
     width:384px;
     margin-top: 49px;
-    font-family: Questrial, 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     font-weight: 800;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -80,7 +74,7 @@ a:focus #site-title, #page-site-title a:focus {opacity: 0.8; border-color: blue;
 #portal-top #main-navigation { }
 #portal-top #main-navigation ul#primary {background:#fffaf5; display:block; height:78px; margin:0; position:absolute; right:0; text-align:right; top:49px; width:100%; z-index:2; }
 #portal-top #main-navigation ul#primary li {display:inline-block; position:relative; text-align:right; vertical-align:top; width:220px; }
-#portal-top #main-navigation ul#primary li a {background:#9c8350; color:#fff; display:block; font-family:Questrial, 'Noto Sans', sans-serif; font-size:15px; font-weight:800; letter-spacing:1px; line-height:72px; padding:0; text-align:center; text-decoration:none; text-transform:uppercase; border: 3px solid transparent; }
+#portal-top #main-navigation ul#primary li a {background:#9c8350; color:#fff; display:block; font-family: 'Noto Sans', sans-serif; font-size:15px; font-weight:800; letter-spacing:1px; line-height:72px; padding:0; text-align:center; text-decoration:none; text-transform:uppercase; border: 3px solid transparent; }
 #portal-top #main-navigation ul#primary li a:hover,
 #portal-top #main-navigation ul#primary li a:focus {opacity: 0.9; border: 3px solid blue !important;}
 #portal-top #main-navigation ul#primary li#portaltab-graduate-studies a {background:#6d6054; border: 3px solid #6d6054; }
@@ -92,7 +86,7 @@ a:focus #site-title, #page-site-title a:focus {opacity: 0.8; border-color: blue;
     color: #333;
     background-color: rgba(221,217,214,1);
     display: block;
-    font-family: Questrial, 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     font-size: 14px;
     font-weight: 800;
     letter-spacing: 1px;
@@ -114,7 +108,7 @@ a:focus #site-title, #page-site-title a:focus {opacity: 0.8; border-color: blue;
 #portal-top #main-navigation .secondary-heading:hover,
 #portal-top #main-navigation .secondary-heading:focus {border-color: blue;}
 #portal-top #main-navigation ul#secondary li {display:inline-block; }
-#portal-top #main-navigation ul#secondary li a {color:#333; display:block; font-family:Questrial, 'Noto Sans', sans-serif; font-size:14px; font-weight:800; letter-spacing:1px; line-height:43px; padding:0 15px; text-align:center; text-decoration:none; text-transform:uppercase; border: 3px solid transparent; }
+#portal-top #main-navigation ul#secondary li a {color:#333; display:block; font-family:'Noto Sans', sans-serif; font-size:14px; font-weight:800; letter-spacing:1px; line-height:43px; padding:0 15px; text-align:center; text-decoration:none; text-transform:uppercase; border: 3px solid transparent; }
 #portal-top #main-navigation ul#secondary li a:hover,
 #portal-top #main-navigation ul#secondary li a:focus {background:#cac5c1; border: 3px solid blue !important; }
 #portal-top .page-title {bottom:30px; display:none; left:0; position:absolute; right:0; width:100%; z-index:4; }
@@ -237,7 +231,7 @@ body[class*="isaw-home"][class*="section"][class*="template-document_view"] #por
 body[class*="isaw-home"][class*="section"][class*="template-document_view"] #portal-columns .cycle-pager span:Hover,
 body[class*="isaw-home"][class*="section"][class*="template-document_view"] #portal-columns .cycle-pager span:focus {background:rgba(255,255,255,1); }
 
-#portal-breadcrumbs {background: #ddd9d6; color:#fff; font-family:Questrial, 'Noto Sans', sans-serif; font-size:14px; font-weight:800; letter-spacing:.5px; line-height:12px; margin:0; padding:21px 20px 20px 56px; text-transform:uppercase; }
+#portal-breadcrumbs {background: #ddd9d6; color:#fff; font-family:'Noto Sans', sans-serif; font-size:14px; font-weight:800; letter-spacing:.5px; line-height:12px; margin:0; padding:21px 20px 20px 56px; text-transform:uppercase; }
 
 .section-graduate-studies #portal-breadcrumbs {background:#6d6054; }
 .section-visiting-scholars #portal-breadcrumbs {background:#9d3a20; }
@@ -305,9 +299,9 @@ body[class*="isaw-home"][class*="section"][class*="template-document_view"] #por
 #portal-columns #column-contents {margin:0 auto; max-width:1154px; overflow:auto; padding:60px 20px 80px; }
 .template-usergroup-userprefs #portal-columns #column-contents,
 .template-usergroup-groupprefs #portal-columns #column-contents {overflow: visible; }
-#portal-columns h1, #content h1 {font-family:Questrial, 'Noto Sans', sans-serif; font-size:36px; font-weight:400; letter-spacing:0.5px; text-transform:uppercase; line-height:100%; }
-#portal-columns h2, #content h2 {font-family:Questrial, 'Noto Sans', sans-serif; font-size:26px; font-weight:400; letter-spacing:0.5px; line-height:100%; margin:0 0 28px;}
-#portal-columns h3, #content h3 {font-family:Questrial, 'Noto Sans', sans-serif; font-size:22px; font-weight:400; letter-spacing:0.5px; line-height:100%; margin:0 0 28px;}
+#portal-columns h1, #content h1 {font-family:'Noto Sans', sans-serif; font-size:36px; font-weight:400; letter-spacing:0.5px; text-transform:uppercase; line-height:100%; }
+#portal-columns h2, #content h2 {font-family:'Noto Sans', sans-serif; font-size:22px; font-weight:400; letter-spacing:0.5px; line-height:100%; margin:0 0 28px;}
+#portal-columns h3, #content h3 {font-family:'Noto Sans', sans-serif; font-size:22px; font-weight:400; letter-spacing:0.5px; line-height:100%; margin:0 0 28px;}
 #portal-columns dl dt, #content dl dt {font-family:'Noto Sans', sans-serif; font-size:22px; font-weight:800; letter-spacing:.7px; line-height:100%; }
 #portal-columns h4, #content h4,
 #portal-columns form fieldset legend, #content form fieldset legend,
@@ -450,7 +444,7 @@ body[class*="isaw-home"][class*="section"][class*="template-document_view"] #por
 #portal-columns ul.navTree li.navTreeTopNode {margin-top: 0px;}
 #portal-columns ul.navTree li.navTreeFolderish {padding-left: 23px;}
 #portal-columns ul.navTree.navTreeLevel0 > li.navTreeFolderish {padding-left: 36px;}
-#portal-columns ul.navTree li a {color:#333; display:block; font-family:Questrial, 'Noto Sans', sans-serif; font-size:17px; font-weight:400; letter-spacing:.5px; padding:0; line-height:120%; margin:0; position:relative; text-decoration:none; border: 3px solid transparent; box-sizing: border-box;}
+#portal-columns ul.navTree li a {color:#333; display:block; font-family:'Noto Sans', sans-serif; font-size:17px; font-weight:400; letter-spacing:.5px; padding:0; line-height:120%; margin:0; position:relative; text-decoration:none; border: 3px solid transparent; box-sizing: border-box;}
 #portal-columns ul.navTree li a.navTreeFolderish {text-decoration:none !important; }
 #portal-columns ul.navTree li > a.navTreeFolderish:before {background:url('_images/arrow-down.png') center center / contain no-repeat; content:""; display:block; height:8px; left:-24px; position:absolute; top:3px; width:13px; }
 #portal-columns ul.navTree li.collapsed > a.navTreeFolderish:before {transform:rotate(-90deg); -webkit-transform:rotate(-90deg); }
@@ -934,7 +928,7 @@ h2.CVSectionTitle:before {
 #content .event-listing .event-result .event-result-detail p {color:#343433; font-size:17px; line-height:120%; margin:0 0 8px; }
 #portal-columns .event-listing .event-result .event-result-detail p.event-subtitle,
 #content .event-listing .event-result .event-result-detail p.event-subtitle {font-size: 18px; font-style: italic;}
-.template-event_view #content p.subtitle {font-family: Questrial, 'Noto Sans', sans-serif; font-size: 22px; font-weight: 900; }
+.template-event_view #content p.subtitle {font-family: 'Noto Sans', sans-serif; font-size: 22px; font-weight: 900; }
 #portal-columns .event-listing .event-result .event-result-detail .post-excerpt,
 #content .event-listing .event-result .event-result-detail .post-excerpt {color:#575756; }
 .eventRsvp {float: right; margin: 0.25em 0 0 0.25em;}
