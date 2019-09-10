@@ -1,6 +1,7 @@
 from cgi import escape
 from xml.sax.saxutils import quoteattr
 from ZODB.blob import Blob
+from ZODB.blob import BlobFile
 
 from piexif._common import split_into_segments
 from piexif._common import get_exif_seg
@@ -168,6 +169,9 @@ def preserve_exif():
     def scaleImage(image, result=None, **parameters):
         """Update image scalers to transfer exif data if available"""
         new_image, format, size = orig_scaleImage(image, result=None, **parameters)
+
+        if isinstance(image, BlobFile):
+            image = image.read()
 
         new_image = _preserve_exif(image, new_image)
         if result and hasattr(result, 'write'):
