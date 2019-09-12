@@ -176,6 +176,7 @@ def preserve_exif():
         new_image, format, size = orig_scaleImage(image, result=None, **parameters)
 
         if isinstance(image, BlobFile):
+            image.seek(0)
             image = image.read()
 
         new_image = _preserve_exif(image, new_image)
