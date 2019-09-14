@@ -237,6 +237,8 @@ def preserve_exif():
         'EncodingProcess',
         'ProfileConnectionSpace',
         'JFIFVersion',
+        'FilePermissions',
+        'SubSecDateTimeOriginal',
     ]
 
     def exif_setTags(editor, tags_dict):
