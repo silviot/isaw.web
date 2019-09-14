@@ -32,7 +32,7 @@ setup(name='isaw.theme',
           'plone.app.theming',
           'collective.navigationtoggle',
           'Products.ZCatalog>=3.0.2',
-          'piexif',
+          'pyexif',
       ],
       entry_points="""
       [z3c.autoinclude.plugin]
