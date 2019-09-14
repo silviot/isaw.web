@@ -1,12 +1,14 @@
+import os
+import six
+
 from cgi import escape
 from xml.sax.saxutils import quoteattr
 from ZODB.blob import Blob
 from ZODB.blob import BlobFile
 
-from piexif._common import split_into_segments
-from piexif._common import get_exif_seg
-from piexif._common import merge_segments
-from piexif._exceptions import InvalidImageDataError
+from pyexif import ExifEditor
+from pyexif import _runproc
+from tempfile import mkdtemp
 
 from OFS.Image import Image
 from Products.Archetypes.Field import ImageField
@@ -158,17 +160,121 @@ def named_file_image_tag():
 
 def preserve_exif():
 
+    EXIF_NON_WRITEABLE = [
+        'ThumbnailOffset',
+        'SlicesGroupName',
+        'ColorSpaceData',
+        'MIMEType',
+        'ProgressiveScans',
+        'FileAccessDate',
+        'ProfileID',
+        'ProfileDescription',
+        'ThumbnailImage',
+        'MeasurementIlluminant',
+        'RedTRC',
+        'ViewingCondIlluminantType',
+        'GreenTRC',
+        'PrimaryPlatform',
+        'HyperfocalDistance',
+        'ProfileFileSignature',
+        'URL_List',
+        'PhotoshopThumbnail',
+        'SourceFile',
+        'ProfileCMMType',
+        'MeasurementGeometry',
+        'DeviceModel',
+        'ConnectionSpaceIlluminant',
+        'DeviceModelDesc',
+        'FileType',
+        'FOV',
+        'PhotoshopFormat',
+        'ScaleFactor35efl',
+        'DeviceManufacturer',
+        'ExifToolVersion',
+        'CurrentIPTCDigest',
+        'PrintPosition',
+        'MeasurementObserver',
+        'ProfileDateTime',
+        'ProfileCreator',
+        'FileTypeExtension',
+        'Technology',
+        'ThumbnailLength',
+        'CMMFlags',
+        'ProfileClass',
+        'RenderingIntent',
+        'GPSPosition',
+        'ShutterSpeed',
+        'ColorTransform',
+        'DCTEncodeVersion',
+        'ReaderName',
+        'Megapixels',
+        'HasRealMergedData',
+        'PrintScale',
+        'FileInodeChangeDate',
+        'WriterName',
+        'MeasurementFlare',
+        'PixelAspectRatio',
+        'ColorComponents',
+        'MediaWhitePoint',
+        'ViewingCondIlluminant',
+        'BlueMatrixColumn',
+        'APP14Flags0',
+        'APP14Flags1',
+        'DeviceAttributes',
+        'MediaBlackPoint',
+        'Aperture',
+        'CircleOfConfusion',
+        'MeasurementBacking',
+        'PrintStyle',
+        'DeviceMfgDesc',
+        'LightValue',
+        'DateTimeCreated',
+        'BlueTRC',
+        'ViewingCondDesc',
+        'FocalLength35efl',
+        'ViewingCondSurround',
+        'GreenMatrixColumn',
+        'Luminance',
+        'NumSlices',
+        'ProfileVersion',
+        'FileSize',
+        'RedMatrixColumn',
+        'EncodingProcess',
+        'ProfileConnectionSpace',
+        'JFIFVersion',
+    ]
+
+    def exif_setTags(editor, tags_dict):
+        vallist = []
+        for tag in tags_dict:
+            if tag in EXIF_NON_WRITEABLE:
+                continue
+            val = tags_dict[tag]
+            if isinstance(val, six.string_types):
+                val = val.replace('"', '\\"')
+            vallist.append('-{0}="{1}"'.format(tag, val))
+        valstr = " ".join(vallist)
+        cmd = """exiftool {editor._optExpr} {valstr} "{editor.photo}" """.format(**locals())
+        out = _runproc(cmd, editor.photo)
+
     def _preserve_exif(orig_image, new_image):
-        try:
-            segments = split_into_segments(orig_image)
-            exif = get_exif_seg(segments)
-        except InvalidImageDataError:
-            exif = None
-        if exif is None:
-            image = new_image
-        else:
-            segments = split_into_segments(new_image)
-            image = merge_segments(segments, exif)
+        tmp_dir = mkdtemp()
+        exiftool_path = os.path.join(tmp_dir, 'plone_image')
+        old_file = open(exiftool_path, "wb")
+        old_file.write(orig_image)
+        old_exif = ExifEditor(exiftool_path)
+        old_exif_tags = old_exif.getDictTags()
+        old_file.close()
+        new_file = open(exiftool_path, "wb")
+        new_file.write(new_image)
+        new_file.close()
+        new_exif = ExifEditor(exiftool_path)
+        exif_setTags(new_exif, old_exif_tags)
+        new_file = open(exiftool_path, 'rb')
+        image = new_file.read()
+        new_file.close()
+        os.remove(exiftool_path)
+        os.rmdir(tmp_dir)
         return image
 
     def scaleImage(image, result=None, **parameters):
