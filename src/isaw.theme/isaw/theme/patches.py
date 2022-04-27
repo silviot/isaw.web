@@ -6,8 +6,8 @@ from xml.sax.saxutils import quoteattr
 from ZODB.blob import Blob
 from ZODB.blob import BlobFile
 
-from pyexif import ExifEditor
-from pyexif import _runproc
+from pyexif.pyexif import ExifEditor
+from pyexif.pyexif import _runproc
 from tempfile import mkdtemp
 
 from OFS.Image import Image
@@ -242,6 +242,8 @@ def preserve_exif():
         'EncodingProcess',
         'ProfileConnectionSpace',
         'JFIFVersion',
+        'FilePermissions',
+        'SubSecDateTimeOriginal',
     ]
 
     def exif_setTags(editor, tags_dict):
