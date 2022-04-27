@@ -6,8 +6,8 @@ from xml.sax.saxutils import quoteattr
 from ZODB.blob import Blob
 from ZODB.blob import BlobFile
 
-from pyexif import ExifEditor
-from pyexif import _runproc
+from pyexif.pyexif import ExifEditor
+from pyexif.pyexif import _runproc
 from tempfile import mkdtemp
 
 from OFS.Image import Image
